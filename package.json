@@ -8,7 +8,6 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@cruxpay/js-sdk": "file:/Users/Sanchay/Work/openpay_sdk_dev",
     "expo": "^35.0.0",
     "expo-crypto": "~7.0.0",
     "react": "16.8.3",
