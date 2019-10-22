@@ -8,15 +8,16 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@cruxpay/js-sdk": "file:/Users/Sanchay/Work/openpay_sdk_dev",
+    "events": "^3.0.0",
     "expo": "^35.0.0",
-    "expo-crypto": "~7.0.0",
     "react": "16.8.3",
     "react-dom": "16.8.3",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
-    "react-native-web": "^0.11.7"
+    "react-native": "0.59.8",
+    "react-native-web": "^0.11.7",
+    "@cruxpay/js-sdk": "0.0.15"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
     "babel-preset-expo": "^7.0.0"
   },
   "private": true
