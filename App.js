@@ -69,34 +69,72 @@ class App extends Component {
               console.log('errorCode', err.errorCode);
               console.log('errorMessage', err.message);
           })
-
+          //
           cruxClient.getAddressMap().then((addressMap) => {
               console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa addressMap', addressMap)
           }).catch((err) => {
               console.log('errorCode', err.errorCode);
               console.log('errorMessage', err.message);
           })
+          //
+          // let newAddressMapping = {
+          //     "bitcoin": {"addressHash": "1HX4KvtPdg9QUYwQE1kNqTAjmNaDG7w82V"},
+          //     "ethereum": {"addressHash": "0x0a2311594059b468c9897338b027c8782398b481"},
+          //     "ripple": {"addressHash": "rpfKAA2Ezqoq5wWo3XENdLYdZ8YGziz48h", "secIdentifier": "12347"},
+          //     "tron": {"addressHash": "TG3iFaVvUs34SGpWq8RG9gnagDLTe1jdyz"}
+          // }
+          // cruxClient.putAddressMap(newAddressMapping).then((res) => {
+          //     console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa res', res)
+          //
+          //     cruxClient.getAddressMap().then((addressMap) => {
+          //         console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa after change addressMap', addressMap)
+          //     }).catch((err) => {
+          //         console.log('errorCode', err.errorCode);
+          //         console.log('errorMessage', err.message);
+          //     })
+          //
+          // }).catch((err) => {
+          //     console.log('errorCode', err.errorCode);
+          //     console.log('errorMessage', err.message);
+          // })
+          //
+          cruxClient.getCruxIDState()
+              .then((state) => {
+                  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa state', state)
+              })
+              .catch((err) => {
+              console.log('errorCode', err.errorCode);
+              console.log('errorMessage', err.message);
+          })
 
-          let newAddressMapping = {
-              "bitcoin": {"addressHash": "1HX4KvtPdg9QUYwQE1kNqTAjmNaDG7w82V"},
-              "ethereum": {"addressHash": "0x0a2311594059b468c9897338b027c8782398b481"},
-              "ripple": {"addressHash": "rpfKAA2Ezqoq5wWo3XENdLYdZ8YGziz48h", "secIdentifier": "12347"},
-              "tron": {"addressHash": "TG3iFaVvUs34SGpWq8RG9gnagDLTe1jdyz"}
-          }
-          cruxClient.putAddressMap(newAddressMapping).then((res) => {
-              console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa res', res)
+          cruxClient.isCruxIDAvailable("shree_007")
+              .then((state) => {
+                  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa shree_007@cruxdev.crux is unavailable?', state)
+              })
+              .catch((err) => {
+              console.log('errorCode', err.errorCode);
+              console.log('errorMessage', err.message);
+          })
 
-              cruxClient.getAddressMap().then((addressMap) => {
-                  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa after change addressMap', addressMap)
-              }).catch((err) => {
+          cruxClient.isCruxIDAvailable("shree_100007")
+              .then((state) => {
+                  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa shree_100007@cruxdev.crux is available?', state)
+              })
+              .catch((err) => {
                   console.log('errorCode', err.errorCode);
                   console.log('errorMessage', err.message);
               })
 
-          }).catch((err) => {
-              console.log('errorCode', err.errorCode);
-              console.log('errorMessage', err.message);
-          })
+          // NOTE: for registering make sure payIDClaim is not set
+          // cruxClient.registerCruxID("umang_test", newAddressMapping)
+          //     .then((state) => {
+          //           console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa registerCruxID', state)
+          //     })
+          //     .catch((err) => {
+          //         console.log('errorCode', err.errorCode);
+          //         console.log('errorMessage', err.message);
+          //     })
+
 
       }).catch((err) => {
         console.log('errorCode', err.errorCode);
