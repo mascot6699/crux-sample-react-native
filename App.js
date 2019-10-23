@@ -77,6 +77,27 @@ class App extends Component {
               console.log('errorMessage', err.message);
           })
 
+          let newAddressMapping = {
+              "bitcoin": {"addressHash": "1HX4KvtPdg9QUYwQE1kNqTAjmNaDG7w82V"},
+              "ethereum": {"addressHash": "0x0a2311594059b468c9897338b027c8782398b481"},
+              "ripple": {"addressHash": "rpfKAA2Ezqoq5wWo3XENdLYdZ8YGziz48h", "secIdentifier": "12347"},
+              "tron": {"addressHash": "TG3iFaVvUs34SGpWq8RG9gnagDLTe1jdyz"}
+          }
+          cruxClient.putAddressMap(newAddressMapping).then((res) => {
+              console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa res', res)
+
+              cruxClient.getAddressMap().then((addressMap) => {
+                  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa after change addressMap', addressMap)
+              }).catch((err) => {
+                  console.log('errorCode', err.errorCode);
+                  console.log('errorMessage', err.message);
+              })
+
+          }).catch((err) => {
+              console.log('errorCode', err.errorCode);
+              console.log('errorMessage', err.message);
+          })
+
       }).catch((err) => {
         console.log('errorCode', err.errorCode);
         console.log('errorMessage', err.message);
