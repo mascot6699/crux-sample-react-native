@@ -50,10 +50,11 @@ class App extends Component {
 
 
       let s = new RNLocalStorage();
+      s.setJSON("payIDClaim", {"identitySecrets":"{\"iv\":\"59ZAnVm5vyC6zIZz\",\"encBuffer\":\"1JstBA1vk8LpSfI9kPlGtWytcAZUbGN51g5E8NA/OVXjSsygdjdceeW0bb/2GbR9qkkq4P7nuP9lCjxbXWcsJaj/0AWUOA82AmZnbP7yUH8ATQwdSgyhUQDGboSVsO2JYFg1tPg2P+kA0jIoRYYGpAlcT8hhEe5jRSp9NBZ2cFWV/z3yDRMZtXHUQtwY/bPenREqBv7iBgwnqWLzrDMoY+KrjOXzUC3BWCByYfj02WkXLq6tQnJyPepCl1OGhpfoDCBgRbrIZ+uJxDp0RrAbp52OSREPaHPF/6oShTm5Pre1ZswBxufqwWMfNARY0wA=\"}","virtualAddress":"yadu007@cruxdev.crux"})
       // s.sync();
       //
       let cruxClientOptions = {
-        getEncryptionKey: 'fookey',
+        getEncryptionKey: () => 'fookey',
         walletClientName: 'cruxdev',
         storage: s
       }
@@ -64,6 +65,13 @@ class App extends Component {
 
           cruxClient.resolveCurrencyAddressForCruxID('shree_007@cruxdev.crux', 'ethereum').then((iadd) => {
               console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa resolved address', iadd);
+          }).catch((err) => {
+              console.log('errorCode', err.errorCode);
+              console.log('errorMessage', err.message);
+          })
+
+          cruxClient.getAddressMap().then((addressMap) => {
+              console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa addressMap', addressMap)
           }).catch((err) => {
               console.log('errorCode', err.errorCode);
               console.log('errorMessage', err.message);
