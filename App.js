@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button} from "react-native";
+import { StyleSheet, Text, View} from "react-native";
 
-import { encryption } from "@cruxpay/js-sdk/dist/cruxpay-sdk";
-import { CruxClient } from "@cruxpay/js-sdk/dist/cruxpay-sdk";
+import { encryption, CruxClient } from "@cruxpay/js-sdk/dist/cruxpay-sdk";
 import {RNLocalStorage} from "./RNLocalStorage"
 
-// import {RNLocalStorage} from "./RNLocalStorage";
-// import { BlockstackService } from "@cruxpay/js-sdk/lib/packages/name-service/blockstack-service"
 
 const styles = StyleSheet.create({
   container: {
@@ -35,45 +32,40 @@ class App extends Component {
               decryptJSON(encryptedValue.encBuffer, encryptedValue.iv, 'foo').then((decryptedValue)=>{
                   console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa decryptedValue => ', decryptedValue);
               })
-          }).catch((err) => {
+          })
+          .catch((err) => {
           console.log(err.errorCode);
           console.log(err.message);
       })
-
-      // let n = BlockstackService.getAddressMapping("cs1@devcoinswitch.crux").then((a) => {
-      //   console.log('CruxClient initialized');
-      //   console.log(a);
-      // }).catch((err) => {
-      //   console.log(err.errorCode);
-      //   console.log(err.message);
-      // })
 
 
       let s = new RNLocalStorage();
       s.setJSON("payIDClaim", {"identitySecrets":"{\"iv\":\"59ZAnVm5vyC6zIZz\",\"encBuffer\":\"1JstBA1vk8LpSfI9kPlGtWytcAZUbGN51g5E8NA/OVXjSsygdjdceeW0bb/2GbR9qkkq4P7nuP9lCjxbXWcsJaj/0AWUOA82AmZnbP7yUH8ATQwdSgyhUQDGboSVsO2JYFg1tPg2P+kA0jIoRYYGpAlcT8hhEe5jRSp9NBZ2cFWV/z3yDRMZtXHUQtwY/bPenREqBv7iBgwnqWLzrDMoY+KrjOXzUC3BWCByYfj02WkXLq6tQnJyPepCl1OGhpfoDCBgRbrIZ+uJxDp0RrAbp52OSREPaHPF/6oShTm5Pre1ZswBxufqwWMfNARY0wA=\"}","virtualAddress":"yadu007@cruxdev.crux"})
       // s.sync();
-      //
+
       let cruxClientOptions = {
         getEncryptionKey: () => 'fookey',
         walletClientName: 'cruxdev',
         storage: s
       }
-
+      let data1 = {}
       let cruxClient = new CruxClient(cruxClientOptions);
       cruxClient.init().then(() => {
           console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa init');
+          data1.initComplete = "Yes";
 
           cruxClient.resolveCurrencyAddressForCruxID('shree_007@cruxdev.crux', 'ethereum').then((iadd) => {
               console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa resolved address', iadd);
+              data1.iadd = iadd;
           }).catch((err) => {
-              console.log('errorCode', err.errorCode);
+              console.log('resolveCurrencyAddressForCruxID errorCode', err.errorCode);
               console.log('errorMessage', err.message);
           })
           //
           cruxClient.getAddressMap().then((addressMap) => {
               console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa addressMap', addressMap)
           }).catch((err) => {
-              console.log('errorCode', err.errorCode);
+              console.log('getAddressMap errorCode', err.errorCode);
               console.log('errorMessage', err.message);
           })
           //
@@ -89,12 +81,12 @@ class App extends Component {
           //     cruxClient.getAddressMap().then((addressMap) => {
           //         console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa after change addressMap', addressMap)
           //     }).catch((err) => {
-          //         console.log('errorCode', err.errorCode);
+          //         console.log('after getAddressMap errorCode', err.errorCode);
           //         console.log('errorMessage', err.message);
           //     })
           //
           // }).catch((err) => {
-          //     console.log('errorCode', err.errorCode);
+          //     console.log('putAddressMap errorCode', err.errorCode);
           //     console.log('errorMessage', err.message);
           // })
           //
@@ -103,7 +95,7 @@ class App extends Component {
                   console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa state', state)
               })
               .catch((err) => {
-              console.log('errorCode', err.errorCode);
+              console.log('getCruxIDState errorCode', err.errorCode);
               console.log('errorMessage', err.message);
           })
 
@@ -112,7 +104,7 @@ class App extends Component {
                   console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa shree_007@cruxdev.crux is unavailable?', state)
               })
               .catch((err) => {
-              console.log('errorCode', err.errorCode);
+              console.log('isCruxIDAvailable false errorCode', err.errorCode);
               console.log('errorMessage', err.message);
           })
 
@@ -121,7 +113,7 @@ class App extends Component {
                   console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa shree_100007@cruxdev.crux is available?', state)
               })
               .catch((err) => {
-                  console.log('errorCode', err.errorCode);
+                  console.log('isCruxIDAvailable true errorCode', err.errorCode);
                   console.log('errorMessage', err.message);
               })
 
@@ -131,14 +123,16 @@ class App extends Component {
           //           console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa registerCruxID', state)
           //     })
           //     .catch((err) => {
-          //         console.log('errorCode', err.errorCode);
+          //         console.log('registerCruxID errorCode', err.errorCode);
           //         console.log('errorMessage', err.message);
           //     })
 
 
-      }).catch((err) => {
-        console.log('errorCode', err.errorCode);
+      })
+      .catch((err) => {
+        console.log('init errorCode', err.errorCode);
         console.log('errorMessage', err.message);
+        return {};
       })
 
   }
