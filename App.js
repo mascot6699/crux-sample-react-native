@@ -1,7 +1,9 @@
+import "./shim";
 import React, { Component } from "react";
-import { StyleSheet, Text, View} from "react-native";
+import { StyleSheet, Text, View, Button} from "react-native";
 
-import { encryption, CruxClient } from "@cruxpay/js-sdk/dist/cruxpay-sdk";
+// NOTE: this is a dist built from the branch inmemory-cache-ios of js-sdk
+import { encryption, CruxClient } from "./cruxpay-sdk";
 import {RNLocalStorage} from "./RNLocalStorage"
 
 
@@ -19,7 +21,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: 'default value'
+      data: 'default value',
+      data1: '-'
     }
   }
 
@@ -52,70 +55,79 @@ class App extends Component {
       let cruxClient = new CruxClient(cruxClientOptions);
       cruxClient.init().then(() => {
           console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa init');
-          data1.initComplete = "Yes";
+          alert("init done");
 
-          cruxClient.resolveCurrencyAddressForCruxID('shree_007@cruxdev.crux', 'ethereum').then((iadd) => {
-              console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa resolved address', iadd);
-              data1.iadd = iadd;
-          }).catch((err) => {
-              console.log('resolveCurrencyAddressForCruxID errorCode', err.errorCode);
-              console.log('errorMessage', err.message);
-          })
-          //
-          cruxClient.getAddressMap().then((addressMap) => {
-              console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa addressMap', addressMap)
-          }).catch((err) => {
-              console.log('getAddressMap errorCode', err.errorCode);
-              console.log('errorMessage', err.message);
-          })
-          //
-          // let newAddressMapping = {
-          //     "bitcoin": {"addressHash": "1HX4KvtPdg9QUYwQE1kNqTAjmNaDG7w82V"},
-          //     "ethereum": {"addressHash": "0x0a2311594059b468c9897338b027c8782398b481"},
-          //     "ripple": {"addressHash": "rpfKAA2Ezqoq5wWo3XENdLYdZ8YGziz48h", "secIdentifier": "12347"},
-          //     "tron": {"addressHash": "TG3iFaVvUs34SGpWq8RG9gnagDLTe1jdyz"}
-          // }
-          // cruxClient.putAddressMap(newAddressMapping).then((res) => {
-          //     console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa res', res)
-          //
-          //     cruxClient.getAddressMap().then((addressMap) => {
-          //         console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa after change addressMap', addressMap)
-          //     }).catch((err) => {
-          //         console.log('after getAddressMap errorCode', err.errorCode);
-          //         console.log('errorMessage', err.message);
-          //     })
-          //
+          // cruxClient.resolveCurrencyAddressForCruxID('shree_007@cruxdev.crux', 'ethereum').then((iadd) => {
+          //     console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa resolved address', iadd);
+          //     alert("shree_007@cruxdev.crux + eth => " + JSON.stringify(iadd));
           // }).catch((err) => {
-          //     console.log('putAddressMap errorCode', err.errorCode);
+          //     console.log('resolveCurrencyAddressForCruxID errorCode', err.errorCode);
+          //     console.log('errorMessage', err.message);
+          // })
+          // //
+          // cruxClient.getAddressMap().then((addressMap) => {
+          //     console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa addressMap', addressMap);
+          //     alert("addressMap done" + JSON.stringify(addressMap));
+          // }).catch((err) => {
+          //     console.log('getAddressMap errorCode', err.errorCode);
+          //     console.log('errorMessage', err.message);
+          // })
+
+
+          let newAddressMapping = {
+              "bitcoin": {"addressHash": "1HX4KvtPdg9QUYwQE1kNqTAjmNaDG7w82V"},
+              "ethereum": {"addressHash": "0x0a2311594059b468c9897338b027c8782398b481"},
+              "ripple": {"addressHash": "rpfKAA2Ezqoq5wWo3XENdLYdZ8YGziz48h", "secIdentifier": "444444"},
+              "tron": {"addressHash": "TG3iFaVvUs34SGpWq8RG9gnagDLTe1jdyz"}
+          }
+          cruxClient.putAddressMap(newAddressMapping).then((res) => {
+              console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa res', res)
+
+              cruxClient.getAddressMap().then((addressMap) => {
+                  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa after change addressMap', addressMap)
+                  alert("after change addressMap" + JSON.stringify(addressMap));
+              }).catch((err) => {
+                  console.log('after getAddressMap errorCode', err.errorCode);
+                  console.log('errorMessage', err.message);
+                  alert("ERROR after change addressMap" + err.message);
+              })
+
+          }).catch((err) => {
+              console.log('putAddressMap errorCode', err.errorCode);
+              console.log('errorMessage', err.message);
+              alert("ERROR putAddressMap" + err.errorCode + err.message);
+          })
+
+
+          // cruxClient.getCruxIDState()
+          //     .then((state) => {
+          //         console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa state', state)
+          //         alert("getCruxIDState done" + JSON.stringify(state));
+          //     })
+          //     .catch((err) => {
+          //     console.log('getCruxIDState errorCode', err.errorCode);
           //     console.log('errorMessage', err.message);
           // })
           //
-          cruxClient.getCruxIDState()
-              .then((state) => {
-                  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa state', state)
-              })
-              .catch((err) => {
-              console.log('getCruxIDState errorCode', err.errorCode);
-              console.log('errorMessage', err.message);
-          })
-
-          cruxClient.isCruxIDAvailable("shree_007")
-              .then((state) => {
-                  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa shree_007@cruxdev.crux is unavailable?', state)
-              })
-              .catch((err) => {
-              console.log('isCruxIDAvailable false errorCode', err.errorCode);
-              console.log('errorMessage', err.message);
-          })
-
-          cruxClient.isCruxIDAvailable("shree_100007")
-              .then((state) => {
-                  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa shree_100007@cruxdev.crux is available?', state)
-              })
-              .catch((err) => {
-                  console.log('isCruxIDAvailable true errorCode', err.errorCode);
-                  console.log('errorMessage', err.message);
-              })
+          // cruxClient.isCruxIDAvailable("shree_007")
+          //     .then((state) => {
+          //         console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa shree_007@cruxdev.crux is unavailable?', state)
+          //         alert("shree_007@cruxdev.crux is unavailable?" + state);
+          //     })
+          //     .catch((err) => {
+          //     console.log('isCruxIDAvailable false errorCode', err.errorCode);
+          //     console.log('errorMessage', err.message);
+          // })
+          //
+          // cruxClient.isCruxIDAvailable("shree_100007")
+          //     .then((state) => {
+          //         console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa shree_100007@cruxdev.crux is available?', state)
+          //         alert("shree_100007@cruxdev.crux is unavailable?" + state);
+          //     })
+          //     .catch((err) => {
+          //         console.log('isCruxIDAvailable true errorCode', err.errorCode);
+          //         console.log('errorMessage', err.message);
+          //     })
 
           // NOTE: for registering make sure payIDClaim is not set
           // cruxClient.registerCruxID("umang_test", newAddressMapping)
@@ -139,7 +151,7 @@ class App extends Component {
 
   componentDidMount() {
     this.testCrux().then(res => {
-      console.log('hello');
+      console.log('hello' + res);
     }).catch(err => {
       console.log(err);
     })

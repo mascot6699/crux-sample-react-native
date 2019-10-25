@@ -1,5 +1,5 @@
 
-import {storage} from "@cruxpay/js-sdk/dist/cruxpay-sdk"
+import {storage} from "./cruxpay-sdk"
 
 const MEMORY_KEY_PREFIX = '@CruxPay:';
 let dataMemory = {};
