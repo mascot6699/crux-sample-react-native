@@ -11,11 +11,23 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		B7A62A6CA1664308924DA518 /* libRNGetRandomValues.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A0C14D64704F6D8EB96CF8 /* libRNGetRandomValues.a */; };
 		E087BA928A9BDF193AC56C0A /* libPods-crux.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 637319B79EA2AA3BC86B6BC1 /* libPods-crux.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BF065B55236881560034E666 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1024BE451D842C094BCAD1E /* RNGetRandomValues.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNGetRandomValues;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		06A0C14D64704F6D8EB96CF8 /* libRNGetRandomValues.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGetRandomValues.a; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* crux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = crux/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = crux/AppDelegate.m; sourceTree = "<group>"; };
@@ -27,6 +39,7 @@
 		56DA4E1096382897026AF8F0 /* Pods-crux.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crux.debug.xcconfig"; path = "Target Support Files/Pods-crux/Pods-crux.debug.xcconfig"; sourceTree = "<group>"; };
 		637319B79EA2AA3BC86B6BC1 /* libPods-crux.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-crux.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F2DEEE9CDBBE5C90F87EA39 /* Pods-crux.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crux.release.xcconfig"; path = "Target Support Files/Pods-crux/Pods-crux.release.xcconfig"; sourceTree = "<group>"; };
+		A1024BE451D842C094BCAD1E /* RNGetRandomValues.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGetRandomValues.xcodeproj; path = "../node_modules/react-native-get-random-values/ios/RNGetRandomValues.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -37,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E087BA928A9BDF193AC56C0A /* libPods-crux.a in Frameworks */,
+				B7A62A6CA1664308924DA518 /* libRNGetRandomValues.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +94,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				A1024BE451D842C094BCAD1E /* RNGetRandomValues.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -92,6 +107,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				485C0944D6E79916427C403A /* Pods */,
+				BF065B51236881550034E666 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -102,6 +118,22 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* crux.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF065B51236881550034E666 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				06A0C14D64704F6D8EB96CF8 /* libRNGetRandomValues.a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		BF065B52236881560034E666 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF065B56236881560034E666 /* libRNGetRandomValues.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,7 +167,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "crux" */;
@@ -150,12 +182,28 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BF065B52236881560034E666 /* Products */;
+					ProjectRef = A1024BE451D842C094BCAD1E /* RNGetRandomValues.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* crux */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BF065B56236881560034E666 /* libRNGetRandomValues.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGetRandomValues.a;
+			remoteRef = BF065B55236881560034E666 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
@@ -259,8 +307,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-get-random-values/ios",
+				);
 				INFOPLIST_FILE = crux/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/crux\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -278,8 +334,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-get-random-values/ios",
+				);
 				INFOPLIST_FILE = crux/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/crux\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

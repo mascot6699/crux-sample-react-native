@@ -3,6 +3,8 @@ package com.crux;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+import org.linusu.RNGetRandomValuesPackage;
 import com.peel.react.TcpSocketsModule;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
@@ -43,6 +45,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new AsyncStoragePackage(),
+            new RNGetRandomValuesPackage(),
             new TcpSocketsModule(),
             new RNScreensPackage(),
             new ReanimatedPackage(),

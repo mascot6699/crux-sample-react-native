@@ -1834,7 +1834,8 @@ exports.PackageErrorCode = PackageErrorCode;
   PackageErrorCode[PackageErrorCode["GaiaEmptyResponse"] = 2107] = "GaiaEmptyResponse"; // 3000s: Registry errors
 
   PackageErrorCode[PackageErrorCode["SubdomainRegistrationFailed"] = 3001] = "SubdomainRegistrationFailed";
-  PackageErrorCode[PackageErrorCode["SubdomainRegistrationAcknowledgementFailed"] = 3002] = "SubdomainRegistrationAcknowledgementFailed"; // Validating user input errors
+  PackageErrorCode[PackageErrorCode["SubdomainRegistrationAcknowledgementFailed"] = 3002] = "SubdomainRegistrationAcknowledgementFailed";
+  PackageErrorCode[PackageErrorCode["FetchPendingRegistrationsByAddressFailed"] = 3003] = "FetchPendingRegistrationsByAddressFailed"; // Validating user input errors
 
   PackageErrorCode[PackageErrorCode["ExpectedEncryptionKeyValue"] = 4001] = "ExpectedEncryptionKeyValue";
   PackageErrorCode[PackageErrorCode["SubdomainRegexMatchFailure"] = 4002] = "SubdomainRegexMatchFailure";
@@ -1846,7 +1847,10 @@ exports.PackageErrorCode = PackageErrorCode;
   PackageErrorCode[PackageErrorCode["BlockstackIdInvalidStructure"] = 4008] = "BlockstackIdInvalidStructure";
   PackageErrorCode[PackageErrorCode["BlockstackIdInvalidSubdomainForTranslation"] = 4009] = "BlockstackIdInvalidSubdomainForTranslation";
   PackageErrorCode[PackageErrorCode["BlockstackIdInvalidDomainForTranslation"] = 4010] = "BlockstackIdInvalidDomainForTranslation";
-  PackageErrorCode[PackageErrorCode["CurrencyDoesNotExistInClientMapping"] = 4011] = "CurrencyDoesNotExistInClientMapping"; // Internal errors
+  PackageErrorCode[PackageErrorCode["CurrencyDoesNotExistInClientMapping"] = 4011] = "CurrencyDoesNotExistInClientMapping";
+  PackageErrorCode[PackageErrorCode["ExistingCruxIDFound"] = 4012] = "ExistingCruxIDFound";
+  PackageErrorCode[PackageErrorCode["CruxIDUnavailable"] = 4013] = "CruxIDUnavailable";
+  PackageErrorCode[PackageErrorCode["InvalidPrivateKeyFormat"] = 4014] = "InvalidPrivateKeyFormat"; // Internal errors
 
   PackageErrorCode[PackageErrorCode["CouldNotFindBlockstackConfigurationServiceClientConfig"] = 5001] = "CouldNotFindBlockstackConfigurationServiceClientConfig";
   PackageErrorCode[PackageErrorCode["CouldNotFindKeyPairToRestoreIdentity"] = 5002] = "CouldNotFindKeyPairToRestoreIdentity";
@@ -1868,7 +1872,7 @@ var _packageErrorCode = require("./package-error-code");
 
 var _a;
 
-var ERROR_STRINGS = (_a = {}, _a[_packageErrorCode.PackageErrorCode.AddressMappingDecodingFailure] = "AddressMapping decoding failure", _a[_packageErrorCode.PackageErrorCode.AddressNotAvailable] = "Currency address not available for user", _a[_packageErrorCode.PackageErrorCode.AssetIDNotAvailable] = "AssetID doesn\'t exist in client mapping", _a[_packageErrorCode.PackageErrorCode.BlockstackIdInvalidStructure] = "Invalid Blockstack ID namespace: '{0}', should end with .id", _a[_packageErrorCode.PackageErrorCode.BlockstackIdInvalidSubdomainForTranslation] = "Invalid Blockstack ID, subdomain must be non null to be translated", _a[_packageErrorCode.PackageErrorCode.BlockstackIdInvalidDomainForTranslation] = "Only Blockstack Domains ending with _crux can be translated", _a[_packageErrorCode.PackageErrorCode.BlockstackIdNamespaceValidation] = "Invalid Blockstack ID", _a[_packageErrorCode.PackageErrorCode.BnsEmptyData] = "No name data available", _a[_packageErrorCode.PackageErrorCode.BnsResolutionFailed] = "'{0}' node not available because '{1}'", _a[_packageErrorCode.PackageErrorCode.ClientNotInitialized] = "CRUX Client not initialized.", _a[_packageErrorCode.PackageErrorCode.CouldNotFindAssetListInClientConfig] = "Missing global asset list", _a[_packageErrorCode.PackageErrorCode.CouldNotFindBlockstackConfigurationServiceClientConfig] = "Missing client-config for: '{0}'", _a[_packageErrorCode.PackageErrorCode.CouldNotFindIdentityKeyPairToPutAddressMapping] = "Missing IdentityKeyPair", _a[_packageErrorCode.PackageErrorCode.CouldNotFindKeyPairToRestoreIdentity] = "Require keypair for restoring the identity", _a[_packageErrorCode.PackageErrorCode.CouldNotFindKeyPairToRegisterName] = "Require keypair for registering name/subdomain", _a[_packageErrorCode.PackageErrorCode.CouldNotValidateZoneFile] = "Invalid zonefile", _a[_packageErrorCode.PackageErrorCode.CruxIdNamespaceValidation] = "Invalid Crux ID namespace: '{0}', should end with .crux", _a[_packageErrorCode.PackageErrorCode.CruxIdInvalidStructure] = "Invalid Crux ID", _a[_packageErrorCode.PackageErrorCode.DecryptionFailed] = "Decryption failed", _a[_packageErrorCode.PackageErrorCode.DifferentWalletCruxID] = "Already has a Crux ID registered with different wallet", _a[_packageErrorCode.PackageErrorCode.ExpectedEncryptionKeyValue] = "Missing encryptionKey method", _a[_packageErrorCode.PackageErrorCode.GaiaClientConfigUploadFailed] = "Unable to upload '{0}' to gaia: '{1}'", _a[_packageErrorCode.PackageErrorCode.GaiaCruxPayUploadFailed] = "Unable to upload '{0}' to gaia: '{1}'", _a[_packageErrorCode.PackageErrorCode.GaiaEmptyResponse] = "Gaia sent empty response", _a[_packageErrorCode.PackageErrorCode.GetAddressMapFailed] = "No address found for CRUX ID", _a[_packageErrorCode.PackageErrorCode.GaiaCruxPayGetFailed] = "Unable to get gaia read url prefix: '{0}'", _a[_packageErrorCode.PackageErrorCode.GaiaClientConfigGetFailed] = "Unable to get gaia read url prefix: '{0}'", _a[_packageErrorCode.PackageErrorCode.GaiaGetFileFailed] = "Unable to get gaia read url prefix: '{0}'", _a[_packageErrorCode.PackageErrorCode.GaiaProfileUploadFailed] = "Unable to upload '{0}' to gaia: '{1}'", _a[_packageErrorCode.PackageErrorCode.GaiaUploadFailed] = "Unable to upload '{0}' to gaia: '{1}'", _a[_packageErrorCode.PackageErrorCode.GetNamesByAddressFailed] = "'{0}' failed with error '{1}'", _a[_packageErrorCode.PackageErrorCode.KeyPairMismatch] = "Invalid keyPair provided", _a[_packageErrorCode.PackageErrorCode.NameIntegrityCheckFailed] = "Name resolution integrity check failed", _a[_packageErrorCode.PackageErrorCode.SubdomainLengthCheckFailure] = "Validation failed: Subdomain length must be between 4 to 20", _a[_packageErrorCode.PackageErrorCode.SubdomainRegexMatchFailure] = "Validation failed: Subdomain should start with alphabet and end with alphabet or number. Allowed characters are lowercase alphabets, numbers, - and _", _a[_packageErrorCode.PackageErrorCode.SubdomainRegistrationAcknowledgementFailed] = "Register call to registrar failed: '{0}'", _a[_packageErrorCode.PackageErrorCode.SubdomainRegistrationFailed] = "Register call to registrar failed: '{0}'", _a[_packageErrorCode.PackageErrorCode.TokenVerificationFailed] = "Token verification failed for '{0}'", _a[_packageErrorCode.PackageErrorCode.UserDoesNotExist] = "ID does not exist", _a[_packageErrorCode.PackageErrorCode.IdentityMismatch] = "Identity mismatch", _a[_packageErrorCode.PackageErrorCode.CurrencyDoesNotExistInClientMapping] = "Currency does not exist in wallet's client mapping", _a);
+var ERROR_STRINGS = (_a = {}, _a[_packageErrorCode.PackageErrorCode.AddressMappingDecodingFailure] = "AddressMapping decoding failure", _a[_packageErrorCode.PackageErrorCode.AddressNotAvailable] = "Currency address not available for user", _a[_packageErrorCode.PackageErrorCode.AssetIDNotAvailable] = "AssetID doesn\'t exist in client mapping", _a[_packageErrorCode.PackageErrorCode.BlockstackIdInvalidStructure] = "Invalid Blockstack ID namespace: '{0}', should end with .id", _a[_packageErrorCode.PackageErrorCode.BlockstackIdInvalidSubdomainForTranslation] = "Invalid Blockstack ID, subdomain must be non null to be translated", _a[_packageErrorCode.PackageErrorCode.BlockstackIdInvalidDomainForTranslation] = "Only Blockstack Domains ending with _crux can be translated", _a[_packageErrorCode.PackageErrorCode.BlockstackIdNamespaceValidation] = "Invalid Blockstack ID", _a[_packageErrorCode.PackageErrorCode.BnsEmptyData] = "No name data available", _a[_packageErrorCode.PackageErrorCode.BnsResolutionFailed] = "'{0}' node not available because '{1}'", _a[_packageErrorCode.PackageErrorCode.ExistingCruxIDFound] = "keypair is already used in registration of CruxID: '{0}'", _a[_packageErrorCode.PackageErrorCode.ClientNotInitialized] = "CRUX Client not initialized.", _a[_packageErrorCode.PackageErrorCode.CouldNotFindAssetListInClientConfig] = "Missing global asset list", _a[_packageErrorCode.PackageErrorCode.CouldNotFindBlockstackConfigurationServiceClientConfig] = "Missing client-config for: '{0}'", _a[_packageErrorCode.PackageErrorCode.CouldNotFindIdentityKeyPairToPutAddressMapping] = "Missing IdentityKeyPair", _a[_packageErrorCode.PackageErrorCode.CouldNotFindKeyPairToRestoreIdentity] = "Require keypair for restoring the identity", _a[_packageErrorCode.PackageErrorCode.CouldNotFindKeyPairToRegisterName] = "Require keypair for registering name/subdomain", _a[_packageErrorCode.PackageErrorCode.CouldNotValidateZoneFile] = "Invalid zonefile", _a[_packageErrorCode.PackageErrorCode.CruxIdNamespaceValidation] = "Invalid Crux ID namespace: '{0}', should end with .crux", _a[_packageErrorCode.PackageErrorCode.CruxIdInvalidStructure] = "Invalid Crux ID", _a[_packageErrorCode.PackageErrorCode.CruxIDUnavailable] = "'{0}' name is unavailable", _a[_packageErrorCode.PackageErrorCode.CurrencyDoesNotExistInClientMapping] = "Currency does not exist in wallet's client mapping", _a[_packageErrorCode.PackageErrorCode.DecryptionFailed] = "Decryption failed", _a[_packageErrorCode.PackageErrorCode.DifferentWalletCruxID] = "Already has a Crux ID registered with different wallet", _a[_packageErrorCode.PackageErrorCode.ExpectedEncryptionKeyValue] = "Missing encryptionKey method", _a[_packageErrorCode.PackageErrorCode.FetchPendingRegistrationsByAddressFailed] = "'{0}' failed with error '{1}'", _a[_packageErrorCode.PackageErrorCode.GaiaClientConfigUploadFailed] = "Unable to upload '{0}' to gaia: '{1}'", _a[_packageErrorCode.PackageErrorCode.GaiaCruxPayUploadFailed] = "Unable to upload '{0}' to gaia: '{1}'", _a[_packageErrorCode.PackageErrorCode.GaiaEmptyResponse] = "Gaia sent empty response", _a[_packageErrorCode.PackageErrorCode.GetAddressMapFailed] = "No address found for CRUX ID", _a[_packageErrorCode.PackageErrorCode.GaiaCruxPayGetFailed] = "Unable to get from gaia: '{0}'", _a[_packageErrorCode.PackageErrorCode.GaiaClientConfigGetFailed] = "Unable to get from gaia : '{0}'", _a[_packageErrorCode.PackageErrorCode.GaiaGetFileFailed] = "Unable to get gaia file: '{0}'", _a[_packageErrorCode.PackageErrorCode.GaiaProfileUploadFailed] = "Unable to upload '{0}' to gaia: '{1}'", _a[_packageErrorCode.PackageErrorCode.GaiaUploadFailed] = "Unable to upload '{0}' to gaia: '{1}'", _a[_packageErrorCode.PackageErrorCode.GetNamesByAddressFailed] = "'{0}' failed with error '{1}'", _a[_packageErrorCode.PackageErrorCode.InvalidPrivateKeyFormat] = "Private key should be either hex encoded, base64 encoded or WIF (base58 - compressed) only", _a[_packageErrorCode.PackageErrorCode.KeyPairMismatch] = "Invalid keyPair provided", _a[_packageErrorCode.PackageErrorCode.NameIntegrityCheckFailed] = "Name resolution integrity check failed", _a[_packageErrorCode.PackageErrorCode.SubdomainLengthCheckFailure] = "Validation failed: Subdomain length must be between 4 to 20", _a[_packageErrorCode.PackageErrorCode.SubdomainRegexMatchFailure] = "Validation failed: Subdomain should start with alphabet and end with alphabet or number. Allowed characters are lowercase alphabets, numbers, - and _", _a[_packageErrorCode.PackageErrorCode.SubdomainRegistrationAcknowledgementFailed] = "Register call to registrar failed: '{0}'", _a[_packageErrorCode.PackageErrorCode.SubdomainRegistrationFailed] = "Register call to registrar failed: '{0}'", _a[_packageErrorCode.PackageErrorCode.TokenVerificationFailed] = "Token verification failed for '{0}'", _a[_packageErrorCode.PackageErrorCode.UserDoesNotExist] = "ID does not exist", _a[_packageErrorCode.PackageErrorCode.IdentityMismatch] = "Identity mismatch", _a);
 exports.ERROR_STRINGS = ERROR_STRINGS;
 },{"./package-error-code":"JIdw"}],"Jpvl":[function(require,module,exports) {
 "use strict";
@@ -2000,6 +2004,12 @@ Object.defineProperty(exports, "ErrorHelper", {
     return _errorHelper.ErrorHelper;
   }
 });
+Object.defineProperty(exports, "ERROR_STRINGS", {
+  enumerable: true,
+  get: function () {
+    return _errorString.ERROR_STRINGS;
+  }
+});
 Object.defineProperty(exports, "PackageErrorCode", {
   enumerable: true,
   get: function () {
@@ -2011,217 +2021,10 @@ var _cruxClientError = require("./crux-client-error");
 
 var _errorHelper = require("./error-helper");
 
+var _errorString = require("./error-string");
+
 var _packageErrorCode = require("./package-error-code");
-},{"./crux-client-error":"R1rB","./error-helper":"Jpvl","./package-error-code":"JIdw"}],"j93N":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.IdTranslator = exports.BlockstackId = exports.CruxId = exports.validateSubdomain = exports.CRUX_DOMAIN_SUFFIX = exports.DEFAULT_BLOCKSTACK_NAMESPACE = void 0;
-
-var _error = require("./error");
-
-var __assign = void 0 && (void 0).__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
-var __read = void 0 && (void 0).__read || function (o, n) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator];
-  if (!m) return o;
-  var i = m.call(o),
-      r,
-      ar = [],
-      e;
-
-  try {
-    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
-      ar.push(r.value);
-    }
-  } catch (error) {
-    e = {
-      error: error
-    };
-  } finally {
-    try {
-      if (r && !r.done && (m = i["return"])) m.call(i);
-    } finally {
-      if (e) throw e.error;
-    }
-  }
-
-  return ar;
-};
-
-var DEFAULT_CRUX_NAMESPACE = "crux";
-var DEFAULT_BLOCKSTACK_NAMESPACE = "id";
-exports.DEFAULT_BLOCKSTACK_NAMESPACE = DEFAULT_BLOCKSTACK_NAMESPACE;
-var CRUX_DOMAIN_SUFFIX = "_crux";
-exports.CRUX_DOMAIN_SUFFIX = CRUX_DOMAIN_SUFFIX;
-
-var validateSubdomain = function validateSubdomain(subDomain) {
-  var subdomainRegex = "^[a-z]([a-z]|[0-9]|-|_)*([a-z]|[0-9])$";
-  var subdomainMinLength = 4;
-  var subdomainMaxLength = 20;
-
-  if (!subDomain.match(new RegExp(subdomainRegex))) {
-    throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.SubdomainRegexMatchFailure);
-  }
-
-  if (subDomain.length < subdomainMinLength || subDomain.length > subdomainMaxLength) {
-    throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.SubdomainLengthCheckFailure);
-  }
-};
-
-exports.validateSubdomain = validateSubdomain;
-
-var CruxId =
-/** @class */
-function () {
-  function CruxId(inputComponents) {
-    var _this = this;
-
-    this.toString = function () {
-      var cruxSubdomainPart = _this.components.subdomain + "@";
-      var otherPart = _this.components.domain + "." + _this.components.namespace;
-      return cruxSubdomainPart + otherPart;
-    }; // validateSubdomain(inputComponents.subdomain);
-
-
-    this.components = __assign(__assign({}, inputComponents), {
-      namespace: DEFAULT_CRUX_NAMESPACE
-    });
-  }
-
-  CruxId.fromString = function (stringRepresentation) {
-    var _a;
-
-    var arrayCruxId = stringRepresentation.split(/[.@]/);
-    var cruxSubdomain = "";
-    var cruxDomain = "";
-    var cruxNamespace = "";
-
-    if (arrayCruxId.length === 3) {
-      _a = __read(arrayCruxId, 3), cruxSubdomain = _a[0], cruxDomain = _a[1], cruxNamespace = _a[2]; // foo@exodus.crux
-    } else {
-      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CruxIdInvalidStructure);
-    }
-
-    if (cruxNamespace !== DEFAULT_CRUX_NAMESPACE) {
-      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CruxIdNamespaceValidation, cruxNamespace);
-    }
-
-    return new CruxId({
-      domain: cruxDomain,
-      subdomain: cruxSubdomain
-    });
-  };
-
-  return CruxId;
-}();
-
-exports.CruxId = CruxId;
-
-var BlockstackId =
-/** @class */
-function () {
-  function BlockstackId(inputComponents) {
-    var _this = this;
-
-    this.toString = function () {
-      var bsSubdomainPart = _this.components.subdomain.length > 0 ? _this.components.subdomain + "." : "";
-      return bsSubdomainPart + _this.components.domain + "." + _this.components.namespace;
-    };
-
-    this.components = __assign(__assign({}, inputComponents), {
-      namespace: DEFAULT_BLOCKSTACK_NAMESPACE
-    });
-  }
-
-  BlockstackId.fromString = function (stringRepresentation) {
-    var _a, _b;
-
-    var arrayBsId = stringRepresentation.split(".");
-    var bsSubdomain = "";
-    var bsDomain = "";
-    var bsNamespace = "";
-
-    if (arrayBsId.length === 3) {
-      _a = __read(arrayBsId, 3), bsSubdomain = _a[0], bsDomain = _a[1], bsNamespace = _a[2];
-    } else if (arrayBsId.length === 2) {
-      _b = __read(arrayBsId, 2), bsDomain = _b[0], bsNamespace = _b[1];
-    } else {
-      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.BlockstackIdInvalidStructure);
-    }
-
-    if (bsNamespace !== DEFAULT_BLOCKSTACK_NAMESPACE) {
-      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.BlockstackIdNamespaceValidation, bsNamespace);
-    }
-
-    return new BlockstackId({
-      domain: bsDomain,
-      subdomain: bsSubdomain
-    });
-  };
-
-  return BlockstackId;
-}();
-
-exports.BlockstackId = BlockstackId;
-
-var IdTranslator =
-/** @class */
-function () {
-  function IdTranslator() {}
-
-  IdTranslator.cruxToBlockstack = function (cruxId) {
-    if (cruxId.components.namespace !== DEFAULT_CRUX_NAMESPACE) {
-      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CruxIdNamespaceValidation, cruxId.components.namespace);
-    }
-
-    return new BlockstackId({
-      domain: cruxId.components.domain + CRUX_DOMAIN_SUFFIX,
-      subdomain: cruxId.components.subdomain
-    });
-  };
-
-  IdTranslator.blockstackToCrux = function (bsId) {
-    if (!bsId.components.subdomain) {
-      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.BlockstackIdInvalidSubdomainForTranslation);
-    }
-
-    if (bsId.components.namespace !== DEFAULT_BLOCKSTACK_NAMESPACE) {
-      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.BlockstackIdNamespaceValidation, bsId.components.namespace);
-    }
-
-    if (!bsId.components.domain.endsWith(CRUX_DOMAIN_SUFFIX)) {
-      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.BlockstackIdInvalidDomainForTranslation);
-    }
-
-    var cruxDomain = bsId.components.domain.slice(0, -5);
-    return new CruxId({
-      domain: cruxDomain,
-      subdomain: bsId.components.subdomain
-    });
-  };
-
-  return IdTranslator;
-}();
-
-exports.IdTranslator = IdTranslator;
-},{"./error":"yXIU"}],"ou4A":[function(require,module,exports) {
+},{"./crux-client-error":"R1rB","./error-helper":"Jpvl","./error-string":"UOYu","./package-error-code":"JIdw"}],"ou4A":[function(require,module,exports) {
 "use strict";
 /**
  * This logic is in a separate file with no dependencies so that it can be
@@ -14846,7 +14649,6 @@ module.exports = {
     "/jsontokens",
     "/jsontokens/key-encoder",
     "/key-encoder",
-    "/secp256k1",
     "/tiny-secp256k1"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.0.tgz",
@@ -116498,28 +116300,6 @@ var Encryption =
 function () {
   function Encryption() {}
 
-  Encryption.digest = function (str) {
-    return __awaiter(void 0, void 0, Promise, function () {
-      var buffer;
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            return [4
-            /*yield*/
-            , crypto.subtle.digest("SHA-256", new TextEncoder().encode(str))];
-
-          case 1:
-            buffer = _a.sent();
-            return [2
-            /*return*/
-            , Array.prototype.map.call(new Uint8Array(buffer), function (x) {
-              return ("00" + x.toString(16)).slice(-2);
-            }).join("")];
-        }
-      });
-    });
-  };
-
   Encryption.encryptJSON = function (jsonObj, password) {
     return __awaiter(void 0, void 0, Promise, function () {
       var plainText;
@@ -116554,21 +116334,13 @@ function () {
 
   Encryption.encryptText = function (plainText, password) {
     return __awaiter(void 0, void 0, Promise, function () {
-      var ptUtf8, pwUtf8, getRandomValuesPolyfill, encrypt, hash, pwHash, _a, iv;
+      var ptUtf8, pwUtf8, encrypt, hash, pwHash, _a, iv;
 
       return __generator(this, function (_b) {
         switch (_b.label) {
           case 0:
             ptUtf8 = Buffer.from(plainText, "UTF-8");
             pwUtf8 = Buffer.from(password, "UTF-8");
-
-            getRandomValuesPolyfill = function getRandomValuesPolyfill(array) {
-              for (var i = 0, l = array.length; i < l; i++) {
-                array[i] = Math.floor(Math.random() * 256);
-              }
-
-              return array;
-            };
 
             encrypt = function encrypt(text, eiv, ekey) {
               var cipher = ncrypto.createCipheriv("aes-256-gcm", Buffer.from(ekey), Buffer.from(eiv));
@@ -116589,7 +116361,7 @@ function () {
 
           case 1:
             pwHash = _a.apply(void 0, [_b.sent()]);
-            iv = getRandomValuesPolyfill(new Uint8Array(12));
+            iv = crypto.getRandomValues(new Uint8Array(12));
             return [2
             /*return*/
             , encrypt(ptUtf8, iv, pwHash)];
@@ -117365,117 +117137,7 @@ exports.default = window.fetch.bind(window);
 exports.Headers = window.Headers;
 exports.Request = window.Request;
 exports.Response = window.Response;
-},{}],"KZir":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.StorageService = void 0;
-
-// Storage service abstraction
-
-/* istanbul ignore next */
-var StorageService =
-/** @class */
-function () {
-  function StorageService() {
-    var _this = this;
-
-    this.setItem = function (key, value) {
-      return undefined;
-    };
-
-    this.getItem = function (key) {
-      return null;
-    };
-
-    this.setJSON = function (key, jsonObj) {
-      var objString = JSON.stringify(jsonObj);
-
-      _this.setItem(key, objString);
-    };
-
-    this.getJSON = function (key) {
-      var objString = _this.getItem(key);
-
-      if (objString) {
-        return JSON.parse(objString);
-      } else {
-        return null;
-      }
-    };
-  }
-
-  return StorageService;
-}();
-
-exports.StorageService = StorageService;
-},{}],"HlMf":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.RNLocalStorage = void 0;
-
-var _storage = require("./storage");
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var MEMORY_KEY_PREFIX = "@CruxPay:";
-
-var RNLocalStorage =
-/** @class */
-function (_super) {
-  __extends(RNLocalStorage, _super);
-
-  function RNLocalStorage() {
-    var _this = _super.call(this) || this;
-
-    _this.setItem = function (key, value) {
-      // AsyncStorage.setItem(MEMORY_KEY_PREFIX + key, value);
-      _this.dataMemory[key] = value;
-      return _this.dataMemory[key];
-    };
-
-    _this.getItem = function (key) {
-      return Object.prototype.hasOwnProperty.call(_this.dataMemory, key) ? _this.dataMemory[key] : undefined;
-    };
-
-    _this.dataMemory = {};
-    return _this;
-  }
-
-  return RNLocalStorage;
-}(_storage.StorageService);
-
-exports.RNLocalStorage = RNLocalStorage;
-},{"./storage":"KZir"}],"DXq1":[function(require,module,exports) {
+},{}],"DXq1":[function(require,module,exports) {
 var __filename = "/Users/shadow/Umang/coinswitch/js-sdk/src/packages/utils.ts";
 var Buffer = require("buffer").Buffer;
 "use strict";
@@ -117491,7 +117153,7 @@ var _nodeFetch = _interopRequireDefault(require("node-fetch"));
 
 var _index = require("../index");
 
-var _storageRn = require("./storage-rn");
+var _error = require("./error");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -117648,22 +117310,9 @@ var log = (0, _index.getLogger)(__filename);
 var httpJSONRequest = function httpJSONRequest(options) {
   log.debug("network_call:", options);
   var promise = new Promise(function (resolve, reject) {
-    var fetchOptions = JSON.parse(JSON.stringify(options));
-    delete fetchOptions.baseUrl;
-    delete fetchOptions.url;
-    var url = "";
-
-    if (options.baseUrl) {
-      url += options.baseUrl;
-    }
-
-    if (options.url) {
-      url += options.url;
-    }
-
-    if (options.body) {
-      fetchOptions.body = JSON.stringify(options.body);
-    }
+    var _a = translateRequestOptionsToFetchOptions(options),
+        url = _a.url,
+        fetchOptions = _a.fetchOptions;
 
     (0, _nodeFetch.default)(url, fetchOptions).then(function (res) {
       return res.json();
@@ -117677,6 +117326,30 @@ var httpJSONRequest = function httpJSONRequest(options) {
 };
 
 exports.httpJSONRequest = httpJSONRequest;
+
+var translateRequestOptionsToFetchOptions = function translateRequestOptionsToFetchOptions(options) {
+  var fetchOptions = Object.assign({}, options);
+  delete fetchOptions.baseUrl;
+  delete fetchOptions.url;
+  var url = "";
+
+  if (options.baseUrl) {
+    url += options.baseUrl;
+  }
+
+  if (options.url) {
+    url += options.url;
+  }
+
+  if (options.body) {
+    fetchOptions.body = JSON.stringify(options.body);
+  }
+
+  return {
+    url: url,
+    fetchOptions: fetchOptions
+  };
+};
 
 var sanitizePrivKey = function sanitizePrivKey(privKey) {
   if (privKey.length === 66 && privKey.slice(64) === "01") {
@@ -117694,15 +117367,26 @@ var cachedFunctionCall = function cachedFunctionCall(cacheKey, ttl, fn, paramArr
   }
 
   return __awaiter(void 0, void 0, Promise, function () {
-    var storage, storageCacheKey, cachedValue, cachedExpiry, newValue, skipCache, _a, stringValue;
+    var storage, storageCacheKey, cachedValue, cachedExpiry, _a, newValue, skipCache, _b, stringValue;
 
-    return __generator(this, function (_b) {
-      switch (_b.label) {
+    return __generator(this, function (_c) {
+      switch (_c.label) {
         case 0:
-          storage = new _storageRn.RNLocalStorage();
+          storage = _index.cacheStorage;
           storageCacheKey = "crux_cache_" + cacheKey;
-          cachedValue = storage.getItem(storageCacheKey);
-          cachedExpiry = Number(storage.getItem(storageCacheKey + ":exp"));
+          return [4
+          /*yield*/
+          , storage.getItem(storageCacheKey)];
+
+        case 1:
+          cachedValue = _c.sent();
+          _a = Number;
+          return [4
+          /*yield*/
+          , storage.getItem(storageCacheKey + ":exp")];
+
+        case 2:
+          cachedExpiry = _a.apply(void 0, [_c.sent()]);
 
           if (cachedValue && cachedExpiry && new Date(cachedExpiry) > new Date()) {
             log.debug("using cachedValue from storage for key " + storageCacheKey);
@@ -117722,29 +117406,43 @@ var cachedFunctionCall = function cachedFunctionCall(cacheKey, ttl, fn, paramArr
           /*yield*/
           , fn.apply(fn, paramArray)];
 
-        case 1:
-          newValue = _b.sent();
-          _a = skipConditional;
-          if (!_a) return [3
+        case 3:
+          newValue = _c.sent();
+          _b = skipConditional;
+          if (!_b) return [3
           /*break*/
-          , 3];
+          , 5];
           return [4
           /*yield*/
           , skipConditional(newValue)];
 
-        case 2:
-          _a = _b.sent();
-          _b.label = 3;
+        case 4:
+          _b = _c.sent();
+          _c.label = 5;
 
-        case 3:
-          skipCache = _a || false;
+        case 5:
+          skipCache = _b || false;
+          if (!(newValue && !skipCache)) return [3
+          /*break*/
+          , 8];
+          stringValue = typeof newValue === "string" ? newValue : JSON.stringify(newValue);
+          return [4
+          /*yield*/
+          , storage.setItem(storageCacheKey, stringValue)];
 
-          if (newValue && !skipCache) {
-            stringValue = typeof newValue === "string" ? newValue : JSON.stringify(newValue);
-            storage.setItem(storageCacheKey, stringValue);
-            storage.setItem(storageCacheKey + ":exp", (ttl * 1000 + Date.now()).toString());
-          }
+        case 6:
+          _c.sent();
 
+          return [4
+          /*yield*/
+          , storage.setItem(storageCacheKey + ":exp", (ttl * 1000 + Date.now()).toString())];
+
+        case 7:
+          _c.sent();
+
+          _c.label = 8;
+
+        case 8:
           return [2
           /*return*/
           , newValue];
@@ -117756,8 +117454,30 @@ var cachedFunctionCall = function cachedFunctionCall(cacheKey, ttl, fn, paramArr
 exports.cachedFunctionCall = cachedFunctionCall;
 
 var getKeyPairFromPrivKey = function getKeyPairFromPrivKey(privKey) {
-  var privateKey = sanitizePrivKey(privKey);
-  var publicKey = bitcoin.ECPair.fromPrivateKey(Buffer.from(privateKey, "hex")).publicKey.toString("hex");
+  var privateKey; // Convert the WIF format to hex
+
+  if (privKey.startsWith("L") || privKey.startsWith("K")) {
+    var keyPair = bitcoin.ECPair.fromWIF(privKey);
+    privateKey = sanitizePrivKey(keyPair.privateKey.toString("hex"));
+  } else {
+    privateKey = sanitizePrivKey(privKey);
+  } // Try with hex encoding first, then with base64
+
+
+  var publicKey;
+
+  try {
+    publicKey = bitcoin.ECPair.fromPrivateKey(Buffer.from(privateKey, "hex")).publicKey.toString("hex");
+  } catch (error) {
+    privateKey = sanitizePrivKey(Buffer.from(privKey, "base64").toString("hex"));
+
+    try {
+      publicKey = bitcoin.ECPair.fromPrivateKey(Buffer.from(privateKey, "hex")).publicKey.toString("hex");
+    } catch (error) {
+      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.InvalidPrivateKeyFormat);
+    }
+  }
+
   var address = bitcoin.payments.p2pkh({
     pubkey: Buffer.from(publicKey, "hex")
   }).address;
@@ -117769,7 +117489,7 @@ var getKeyPairFromPrivKey = function getKeyPairFromPrivKey(privKey) {
 };
 
 exports.getKeyPairFromPrivKey = getKeyPairFromPrivKey;
-},{"bitcoinjs-lib":"bZOe","node-fetch":"KBaF","../index":"QCba","./storage-rn":"HlMf","buffer":"dskh"}],"Svqq":[function(require,module,exports) {
+},{"bitcoinjs-lib":"bZOe","node-fetch":"KBaF","../index":"QCba","./error":"yXIU","buffer":"dskh"}],"Svqq":[function(require,module,exports) {
 var __filename = "/Users/shadow/Umang/coinswitch/js-sdk/src/packages/gaia-service/index.ts";
 "use strict";
 
@@ -117783,10 +117503,6 @@ var blockstack = _interopRequireWildcard(require("blockstack"));
 var _jsontokens = require("jsontokens");
 
 var _2 = require("../..");
-
-var _error = require("../error");
-
-var nameservice = _interopRequireWildcard(require("../name-service/blockstack-service"));
 
 var _utils = require("../utils");
 
@@ -117945,13 +117661,13 @@ function () {
   function GaiaService(gaiaWriteUrl) {
     var _this = this;
 
-    this.uploadContentToGaiaHub = function (filename, privKey, content, prefix, type) {
+    this.uploadContentToGaiaHub = function (filename, privKey, content, type) {
       if (type === void 0) {
         type = "application/json";
       }
 
       return __awaiter(_this, void 0, Promise, function () {
-        var sanitizedPrivKey, hubURL, hubConfig, tokenFile, contentToUpload, finalURL, error_1, packageErrorCode;
+        var sanitizedPrivKey, hubURL, hubConfig, tokenFile, contentToUpload;
         return __generator(this, function (_a) {
           switch (_a.label) {
             case 0:
@@ -117965,85 +117681,14 @@ function () {
               hubConfig = _a.sent();
               tokenFile = this._generateTokenFileForContent(sanitizedPrivKey, content);
               contentToUpload = JSON.stringify(tokenFile);
-              _a.label = 2;
+              return [4
+              /*yield*/
+              , blockstack.uploadToGaiaHub(filename, contentToUpload, hubConfig, type)];
 
             case 2:
-              _a.trys.push([2, 4,, 5]);
-
-              return [4
-              /*yield*/
-              , blockstack.uploadToGaiaHub((prefix ? prefix + "_" : "") + filename, contentToUpload, hubConfig, type)];
-
-            case 3:
-              finalURL = _a.sent();
-              log.debug("finalUrl is " + finalURL);
-              return [3
-              /*break*/
-              , 5];
-
-            case 4:
-              error_1 = _a.sent();
-              packageErrorCode = nameservice.BlockstackService.getUploadPackageErrorCodeForFilename(filename);
-              throw _error.ErrorHelper.getPackageError(packageErrorCode, filename, error_1);
-
-            case 5:
               return [2
               /*return*/
-              , finalURL];
-          }
-        });
-      });
-    };
-
-    this.uploadProfileInfo = function (privKey) {
-      return __awaiter(_this, void 0, Promise, function () {
-        var hubUrl, hubConfig, profileObj, filename, person, token, tokenFile, finalUrl, error_2;
-        return __generator(this, function (_a) {
-          switch (_a.label) {
-            case 0:
-              // TODO: validate the privateKey format and convert
-              privKey = (0, _utils.sanitizePrivKey)(privKey);
-              hubUrl = this.gaiaWriteUrl;
-              return [4
-              /*yield*/
-              , blockstack.connectToGaiaHub(hubUrl, privKey)];
-
-            case 1:
-              hubConfig = _a.sent();
-              profileObj = {
-                "@context": "http://schema.org/",
-                "@type": "Person"
-              };
-              filename = nameservice.UPLOADABLE_JSON_FILES.PROFILE;
-              person = new blockstack.Person(profileObj);
-              token = person.toToken(privKey);
-              log.debug(token);
-              tokenFile = [blockstack.wrapProfileToken(token)];
-              log.debug(tokenFile);
-              _a.label = 2;
-
-            case 2:
-              _a.trys.push([2, 4,, 5]);
-
-              return [4
-              /*yield*/
-              , blockstack.uploadToGaiaHub(filename, JSON.stringify(tokenFile), hubConfig, "application/json")];
-
-            case 3:
-              finalUrl = _a.sent();
-              log.debug(finalUrl);
-              return [3
-              /*break*/
-              , 5];
-
-            case 4:
-              error_2 = _a.sent();
-              throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.GaiaProfileUploadFailed, filename, error_2);
-
-            case 5:
-              return [2
-              /*return*/
-              ];
+              , _a.sent()];
           }
         });
       });
@@ -118073,7 +117718,224 @@ function () {
 }();
 
 exports.GaiaService = GaiaService;
-},{"blockstack":"OVDV","jsontokens":"ap7v","../..":"QCba","../error":"yXIU","../name-service/blockstack-service":"EjPX","../utils":"DXq1"}],"gpdj":[function(require,module,exports) {
+},{"blockstack":"OVDV","jsontokens":"ap7v","../..":"QCba","../utils":"DXq1"}],"j93N":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.IdTranslator = exports.BlockstackId = exports.CruxId = exports.validateSubdomain = exports.CRUX_DOMAIN_SUFFIX = exports.DEFAULT_BLOCKSTACK_NAMESPACE = void 0;
+
+var _error = require("./error");
+
+var __assign = void 0 && (void 0).__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+var __read = void 0 && (void 0).__read || function (o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
+
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+      ar.push(r.value);
+    }
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
+    }
+  }
+
+  return ar;
+};
+
+var DEFAULT_CRUX_NAMESPACE = "crux";
+var DEFAULT_BLOCKSTACK_NAMESPACE = "id";
+exports.DEFAULT_BLOCKSTACK_NAMESPACE = DEFAULT_BLOCKSTACK_NAMESPACE;
+var CRUX_DOMAIN_SUFFIX = "_crux";
+exports.CRUX_DOMAIN_SUFFIX = CRUX_DOMAIN_SUFFIX;
+
+var validateSubdomain = function validateSubdomain(subDomain) {
+  var subdomainRegex = "^[a-z]([a-z]|[0-9]|-|_)*([a-z]|[0-9])$";
+  var subdomainMinLength = 4;
+  var subdomainMaxLength = 20;
+
+  if (!subDomain.match(new RegExp(subdomainRegex))) {
+    throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.SubdomainRegexMatchFailure);
+  }
+
+  if (subDomain.length < subdomainMinLength || subDomain.length > subdomainMaxLength) {
+    throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.SubdomainLengthCheckFailure);
+  }
+};
+
+exports.validateSubdomain = validateSubdomain;
+
+var CruxId =
+/** @class */
+function () {
+  function CruxId(inputComponents) {
+    var _this = this;
+
+    this.toString = function () {
+      var cruxSubdomainPart = _this.components.subdomain + "@";
+      var otherPart = _this.components.domain + "." + _this.components.namespace;
+      return cruxSubdomainPart + otherPart;
+    }; // validateSubdomain(inputComponents.subdomain);
+
+
+    this.components = __assign(__assign({}, inputComponents), {
+      namespace: DEFAULT_CRUX_NAMESPACE
+    });
+  }
+
+  CruxId.fromString = function (stringRepresentation) {
+    var _a;
+
+    var arrayCruxId = stringRepresentation.split(/[.@]/);
+    var cruxSubdomain = "";
+    var cruxDomain = "";
+    var cruxNamespace = "";
+
+    if (arrayCruxId.length === 3) {
+      _a = __read(arrayCruxId, 3), cruxSubdomain = _a[0], cruxDomain = _a[1], cruxNamespace = _a[2]; // foo@exodus.crux
+    } else {
+      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CruxIdInvalidStructure);
+    }
+
+    if (cruxNamespace !== DEFAULT_CRUX_NAMESPACE) {
+      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CruxIdNamespaceValidation, cruxNamespace);
+    }
+
+    return new CruxId({
+      domain: cruxDomain,
+      subdomain: cruxSubdomain
+    });
+  };
+
+  return CruxId;
+}();
+
+exports.CruxId = CruxId;
+
+var BlockstackId =
+/** @class */
+function () {
+  function BlockstackId(inputComponents) {
+    var _this = this;
+
+    this.toString = function () {
+      var bsSubdomainPart = _this.components.subdomain.length > 0 ? _this.components.subdomain + "." : "";
+      return bsSubdomainPart + _this.components.domain + "." + _this.components.namespace;
+    };
+
+    this.components = __assign(__assign({}, inputComponents), {
+      namespace: DEFAULT_BLOCKSTACK_NAMESPACE
+    });
+  }
+
+  BlockstackId.fromString = function (stringRepresentation) {
+    var _a, _b;
+
+    var arrayBsId = stringRepresentation.split(".");
+    var bsSubdomain = "";
+    var bsDomain = "";
+    var bsNamespace = "";
+
+    if (arrayBsId.length === 3) {
+      _a = __read(arrayBsId, 3), bsSubdomain = _a[0], bsDomain = _a[1], bsNamespace = _a[2];
+    } else if (arrayBsId.length === 2) {
+      _b = __read(arrayBsId, 2), bsDomain = _b[0], bsNamespace = _b[1];
+    } else {
+      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.BlockstackIdInvalidStructure);
+    }
+
+    if (bsNamespace !== DEFAULT_BLOCKSTACK_NAMESPACE) {
+      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.BlockstackIdNamespaceValidation, bsNamespace);
+    }
+
+    return new BlockstackId({
+      domain: bsDomain,
+      subdomain: bsSubdomain
+    });
+  };
+
+  return BlockstackId;
+}();
+
+exports.BlockstackId = BlockstackId;
+
+var IdTranslator =
+/** @class */
+function () {
+  function IdTranslator() {}
+
+  IdTranslator.cruxDomainToBlockstackDomain = function (domain) {
+    return domain + CRUX_DOMAIN_SUFFIX;
+  };
+
+  IdTranslator.blockstackDomainToCruxDomain = function (domain) {
+    return domain.slice(0, -5);
+  };
+
+  IdTranslator.cruxToBlockstack = function (cruxId) {
+    if (cruxId.components.namespace !== DEFAULT_CRUX_NAMESPACE) {
+      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CruxIdNamespaceValidation, cruxId.components.namespace);
+    }
+
+    return new BlockstackId({
+      domain: IdTranslator.cruxDomainToBlockstackDomain(cruxId.components.domain),
+      subdomain: cruxId.components.subdomain
+    });
+  };
+
+  IdTranslator.blockstackToCrux = function (bsId) {
+    if (!bsId.components.subdomain) {
+      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.BlockstackIdInvalidSubdomainForTranslation);
+    }
+
+    if (bsId.components.namespace !== DEFAULT_BLOCKSTACK_NAMESPACE) {
+      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.BlockstackIdNamespaceValidation, bsId.components.namespace);
+    }
+
+    if (!bsId.components.domain.endsWith(CRUX_DOMAIN_SUFFIX)) {
+      throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.BlockstackIdInvalidDomainForTranslation);
+    }
+
+    var cruxDomain = IdTranslator.blockstackDomainToCruxDomain(bsId.components.domain);
+    return new CruxId({
+      domain: cruxDomain,
+      subdomain: bsId.components.subdomain
+    });
+  };
+
+  return IdTranslator;
+}();
+
+exports.IdTranslator = IdTranslator;
+},{"./error":"yXIU"}],"gpdj":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118305,7 +118167,7 @@ function () {
         return __generator(this, function (_a) {
           return [2
           /*return*/
-          , false];
+          ];
         });
       });
     };
@@ -119812,9 +119674,9 @@ var bnsResolveName = function bnsResolveName(baseUrl, blockstackId) {
   });
 };
 
-var getCruxIDByAddress = function getCruxIDByAddress(bnsNodes, address) {
+var getCruxIDByAddress = function getCruxIDByAddress(walletClientName, address, bnsNodes, registrar) {
   return __awaiter(void 0, void 0, Promise, function () {
-    var nodePromises, responseArr, commonNames, bsId;
+    var nodePromises, responseArr, commonNames, bsId, pendingSubdomains;
     return __generator(this, function (_a) {
       switch (_a.label) {
         case 0:
@@ -119835,14 +119697,30 @@ var getCruxIDByAddress = function getCruxIDByAddress(bnsNodes, address) {
             }));
           }));
           bsId = commonNames.find(function (name) {
-            var regex = new RegExp("(.+).(.+)" + _identityUtils.CRUX_DOMAIN_SUFFIX + "." + _identityUtils.DEFAULT_BLOCKSTACK_NAMESPACE);
+            var regex = new RegExp("(.+)." + _identityUtils.IdTranslator.cruxDomainToBlockstackDomain(walletClientName) + "." + _identityUtils.DEFAULT_BLOCKSTACK_NAMESPACE);
             var match = name.match(regex);
             return match && match[0];
           });
+          if (!!bsId) return [3
+          /*break*/
+          , 3];
+          return [4
+          /*yield*/
+          , fetchPendingRegistrationsByAddress(walletClientName, registrar, address)];
 
-          if (!bsId) {// Fetch any pending registrations on the address using the registrar
+        case 2:
+          pendingSubdomains = _a.sent();
+
+          if (pendingSubdomains.length !== 0) {
+            bsId = new _identityUtils.BlockstackId({
+              domain: _identityUtils.IdTranslator.cruxDomainToBlockstackDomain(walletClientName),
+              subdomain: pendingSubdomains[0]
+            }).toString();
           }
 
+          _a.label = 3;
+
+        case 3:
           return [2
           /*return*/
           , bsId && _identityUtils.IdTranslator.blockstackToCrux(_identityUtils.BlockstackId.fromString(bsId)).toString() || null];
@@ -119893,6 +119771,52 @@ var bnsFetchNamesByAddress = function bnsFetchNamesByAddress(baseUrl, address) {
     });
   });
 };
+
+var fetchPendingRegistrationsByAddress = function fetchPendingRegistrationsByAddress(walletClientName, registrar, address) {
+  return __awaiter(void 0, void 0, Promise, function () {
+    var url, options, registrationsArray, error_3;
+    return __generator(this, function (_a) {
+      switch (_a.label) {
+        case 0:
+          url = "/subdomain/" + address;
+          options = {
+            baseUrl: registrar,
+            headers: {
+              "x-domain-name": "" + walletClientName + _identityUtils.CRUX_DOMAIN_SUFFIX
+            },
+            json: true,
+            method: "GET",
+            url: url
+          };
+          _a.label = 1;
+
+        case 1:
+          _a.trys.push([1, 3,, 4]);
+
+          return [4
+          /*yield*/
+          , (0, _utils.httpJSONRequest)(options)];
+
+        case 2:
+          registrationsArray = _a.sent();
+          return [3
+          /*break*/
+          , 4];
+
+        case 3:
+          error_3 = _a.sent();
+          throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.FetchPendingRegistrationsByAddressFailed, "" + registrar + url, error_3);
+
+        case 4:
+          return [2
+          /*return*/
+          , registrationsArray.map(function (registration) {
+            return registration.subdomainName;
+          })];
+      }
+    });
+  });
+};
 },{"assert":"DlZn","../..":"QCba","../error":"yXIU","../identity-utils":"j93N","../utils":"DXq1"}],"EjPX":[function(require,module,exports) {
 var __filename = "/Users/shadow/Umang/coinswitch/js-sdk/src/packages/name-service/blockstack-service.ts";
 "use strict";
@@ -119900,7 +119824,7 @@ var __filename = "/Users/shadow/Umang/coinswitch/js-sdk/src/packages/name-servic
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.BlockstackService = exports.UPLOADABLE_JSON_FILES = exports.SubdomainRegistrationStatus = void 0;
+exports.BlockstackService = exports.UPLOADABLE_JSON_FILES = exports.SubdomainRegistrationStatus = exports.MNEMONIC_STORAGE_KEY = void 0;
 
 var _jsonTypeValidation = require("@mojotech/json-type-validation");
 
@@ -119912,11 +119836,11 @@ var blockstack = _interopRequireWildcard(require("blockstack"));
 
 var _2 = require("../..");
 
-var _config = _interopRequireDefault(require("../../config"));
-
 var _encryption = require("../encryption");
 
 var _error = require("../error");
+
+var _packageError = require("../error/package-error");
 
 var _gaiaService = require("../gaia-service");
 
@@ -119929,8 +119853,6 @@ var utils = _interopRequireWildcard(require("../utils"));
 var nameService = _interopRequireWildcard(require("./index"));
 
 var _utils3 = require("./utils");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -120122,42 +120044,9 @@ var __values = void 0 && (void 0).__values || function (o) {
   throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
 
-var __read = void 0 && (void 0).__read || function (o, n) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator];
-  if (!m) return o;
-  var i = m.call(o),
-      r,
-      ar = [],
-      e;
-
-  try {
-    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
-      ar.push(r.value);
-    }
-  } catch (error) {
-    e = {
-      error: error
-    };
-  } finally {
-    try {
-      if (r && !r.done && (m = i["return"])) m.call(i);
-    } finally {
-      if (e) throw e.error;
-    }
-  }
-
-  return ar;
-};
-
-var __spread = void 0 && (void 0).__spread || function () {
-  for (var ar = [], i = 0; i < arguments.length; i++) {
-    ar = ar.concat(__read(arguments[i]));
-  }
-
-  return ar;
-};
-
 var log = (0, _2.getLogger)(__filename);
+var MNEMONIC_STORAGE_KEY = "encryptedMnemonic";
+exports.MNEMONIC_STORAGE_KEY = MNEMONIC_STORAGE_KEY;
 var SubdomainRegistrationStatus;
 exports.SubdomainRegistrationStatus = SubdomainRegistrationStatus;
 
@@ -120191,18 +120080,12 @@ var getIdentityCoupleFromBlockstackId = function getIdentityCoupleFromBlockstack
   };
 };
 
-var defaultBNSConfig = {
-  bnsNodes: _config.default.BLOCKSTACK.BNS_NODES,
-  gaiaHub: _config.default.BLOCKSTACK.GAIA_HUB,
-  subdomainRegistrar: _config.default.BLOCKSTACK.SUBDOMAIN_REGISTRAR
-};
 var UPLOADABLE_JSON_FILES;
 exports.UPLOADABLE_JSON_FILES = UPLOADABLE_JSON_FILES;
 
 (function (UPLOADABLE_JSON_FILES) {
   UPLOADABLE_JSON_FILES["CRUXPAY"] = "cruxpay.json";
   UPLOADABLE_JSON_FILES["CLIENT_CONFIG"] = "client-config.json";
-  UPLOADABLE_JSON_FILES["PROFILE"] = "profile.json";
 })(UPLOADABLE_JSON_FILES || (exports.UPLOADABLE_JSON_FILES = UPLOADABLE_JSON_FILES = {}));
 
 var BlockstackService =
@@ -120259,12 +120142,18 @@ function (_super) {
           switch (_a.label) {
             case 0:
               newMnemonic = this._generateMnemonic();
-              storage.setItem("encryptedMnemonic", JSON.stringify(_encryption.Encryption.encryptText(newMnemonic, encryptionKey)));
+              return [4
+              /*yield*/
+              , this._storeMnemonic(newMnemonic, storage, encryptionKey)];
+
+            case 1:
+              _a.sent();
+
               return [4
               /*yield*/
               , this._generateIdentityKeyPair(newMnemonic)];
 
-            case 1:
+            case 2:
               identityKeyPair = _a.sent();
               return [2
               /*return*/
@@ -120292,16 +120181,9 @@ function (_super) {
 
               return [4
               /*yield*/
-              , this._gaiaService.uploadProfileInfo(identityKeyPair.privKey)];
-
-            case 1:
-              _a.sent();
-
-              return [4
-              /*yield*/
               , this._registerSubdomain(subdomain, identityKeyPair.address)];
 
-            case 2:
+            case 1:
               registeredSubdomain = _a.sent();
               this._identityCouple = getIdentityCoupleFromBlockstackId(new _identityUtils.BlockstackId({
                 domain: this._domain,
@@ -120411,6 +120293,33 @@ function (_super) {
       });
     };
 
+    _this.getDomainAvailability = function (domain) {
+      return __awaiter(_this, void 0, Promise, function () {
+        var options, body;
+        return __generator(this, function (_a) {
+          switch (_a.label) {
+            case 0:
+              options = {
+                baseUrl: this._bnsNodes[0],
+                json: true,
+                method: "GET",
+                url: "/v1/names/" + domain + _identityUtils.CRUX_DOMAIN_SUFFIX + "." + _identityUtils.DEFAULT_BLOCKSTACK_NAMESPACE
+              };
+              log.debug("domain name availability query params", options);
+              return [4
+              /*yield*/
+              , utils.httpJSONRequest(options)];
+
+            case 1:
+              body = _a.sent();
+              return [2
+              /*return*/
+              , body.status === "available"];
+          }
+        });
+      });
+    };
+
     _this.putAddressMapping = function (identityClaim, addressMapping) {
       return __awaiter(_this, void 0, Promise, function () {
         var addressDecoder, _a, _b, currency, addressObject;
@@ -120452,14 +120361,14 @@ function (_super) {
 
               return [4
               /*yield*/
-              , this._gaiaService.uploadContentToGaiaHub(UPLOADABLE_JSON_FILES.CRUXPAY, identityClaim.secrets.identityKeyPair.privKey, addressMapping)];
+              , this._uploadContentToGaiaHub(UPLOADABLE_JSON_FILES.CRUXPAY, identityClaim.secrets.identityKeyPair.privKey, addressMapping, _identityUtils.IdTranslator.blockstackDomainToCruxDomain(this._domain))];
 
             case 1:
               _d.sent();
 
               return [2
               /*return*/
-              , true];
+              ];
           }
         });
       });
@@ -120475,7 +120384,7 @@ function (_super) {
               blockstackIdString = _identityUtils.IdTranslator.cruxToBlockstack(cruxId).toString();
               return [4
               /*yield*/
-              , (0, _utils.getContentFromGaiaHub)(blockstackIdString, UPLOADABLE_JSON_FILES.CRUXPAY, this._bnsNodes)];
+              , this._getContentFromGaiaHub(blockstackIdString, UPLOADABLE_JSON_FILES.CRUXPAY, cruxId.components.domain)];
 
             case 1:
               return [2
@@ -120486,14 +120395,61 @@ function (_super) {
       });
     };
 
-    _this._getConfigOptions = function (defaultConfig, options) {
-      var configOptions = {
-        bnsNodes: options.bnsNodes || defaultConfig.bnsNodes,
-        domain: options.domain,
-        gaiaHub: options.gaiaHub || defaultConfig.gaiaHub,
-        subdomainRegistrar: options.subdomainRegistrar || defaultConfig.subdomainRegistrar
-      };
-      return configOptions;
+    _this._storeMnemonic = function (mnemonic, storage, encryptionKey) {
+      return __awaiter(_this, void 0, Promise, function () {
+        var _a, _b, _c, _d, _e;
+
+        return __generator(this, function (_f) {
+          switch (_f.label) {
+            case 0:
+              _b = (_a = storage).setItem;
+              _c = [MNEMONIC_STORAGE_KEY];
+              _e = (_d = JSON).stringify;
+              return [4
+              /*yield*/
+              , _encryption.Encryption.encryptText(mnemonic, encryptionKey)];
+
+            case 1:
+              return [4
+              /*yield*/
+              , _b.apply(_a, _c.concat([_e.apply(_d, [_f.sent()])]))];
+
+            case 2:
+              _f.sent();
+
+              return [2
+              /*return*/
+              ];
+          }
+        });
+      });
+    };
+
+    _this._retrieveMnemonic = function (storage, encryptionKey) {
+      return __awaiter(_this, void 0, Promise, function () {
+        var encryptedMnemonic, _a, _b;
+
+        return __generator(this, function (_c) {
+          switch (_c.label) {
+            case 0:
+              _b = (_a = JSON).parse;
+              return [4
+              /*yield*/
+              , storage.getItem(MNEMONIC_STORAGE_KEY)];
+
+            case 1:
+              encryptedMnemonic = _b.apply(_a, [_c.sent()]);
+              return [4
+              /*yield*/
+              , _encryption.Encryption.decryptText(encryptedMnemonic.encBuffer, encryptedMnemonic.iv, encryptionKey)];
+
+            case 2:
+              return [2
+              /*return*/
+              , _c.sent()];
+          }
+        });
+      });
     };
 
     _this._generateMnemonic = function () {
@@ -120618,6 +120574,89 @@ function (_super) {
       }
 
       return status;
+    };
+
+    _this._uploadContentToGaiaHub = function (filename, privKey, content, prefix) {
+      return __awaiter(_this, void 0, Promise, function () {
+        var filenameToUpload, finalURL, error_1, packageErrorCode;
+        return __generator(this, function (_a) {
+          switch (_a.label) {
+            case 0:
+              filenameToUpload = prefix + "_" + filename;
+              _a.label = 1;
+
+            case 1:
+              _a.trys.push([1, 3,, 4]);
+
+              return [4
+              /*yield*/
+              , this._gaiaService.uploadContentToGaiaHub(filenameToUpload, privKey, content, prefix)];
+
+            case 2:
+              finalURL = _a.sent();
+              log.debug("finalUrl is " + finalURL);
+              return [3
+              /*break*/
+              , 4];
+
+            case 3:
+              error_1 = _a.sent();
+              packageErrorCode = BlockstackService.getUploadPackageErrorCodeForFilename(filename);
+              throw _error.ErrorHelper.getPackageError(packageErrorCode, filename, error_1);
+
+            case 4:
+              return [2
+              /*return*/
+              , finalURL];
+          }
+        });
+      });
+    };
+
+    _this._getContentFromGaiaHub = function (blockstackId, filename, prefix) {
+      return __awaiter(_this, void 0, Promise, function () {
+        var filenameToFetch, responseBody, error_2, packageErrorCode;
+        return __generator(this, function (_a) {
+          switch (_a.label) {
+            case 0:
+              filenameToFetch = prefix + "_" + filename;
+              _a.label = 1;
+
+            case 1:
+              _a.trys.push([1, 3,, 4]);
+
+              return [4
+              /*yield*/
+              , (0, _utils.getContentFromGaiaHub)(blockstackId, filenameToFetch, this._bnsNodes)];
+
+            case 2:
+              responseBody = _a.sent();
+              log.debug("Response from " + filenameToFetch, responseBody);
+              return [3
+              /*break*/
+              , 4];
+
+            case 3:
+              error_2 = _a.sent();
+
+              if (error_2 instanceof _packageError.PackageError && error_2.errorCode) {
+                throw error_2;
+              } else {
+                packageErrorCode = BlockstackService.getGetPackageErrorCodeForFilename(filename);
+                throw _error.ErrorHelper.getPackageError(packageErrorCode, filename, error_2);
+              }
+
+              return [3
+              /*break*/
+              , 4];
+
+            case 4:
+              return [2
+              /*return*/
+              , responseBody];
+          }
+        });
+      });
     }; // TODO: Verify Domain against Registrar
 
 
@@ -120625,14 +120664,10 @@ function (_super) {
       throw new Error("No wallet name sepcified!");
     }
 
-    var _options = _this._getConfigOptions(defaultBNSConfig, options);
-
-    _this._domain = _options.domain;
-    _this._gaiaHub = _options.gaiaHub;
-    _this._subdomainRegistrar = _options.subdomainRegistrar; // @ts-ignore
-
-    _this._bnsNodes = __spread(new Set(__spread(_config.default.BLOCKSTACK.BNS_NODES, _options.bnsNodes))); // always append the extra configured BNS nodes (needs `downlevelIteration` flag enabled in tsconfig.json)
-
+    _this._domain = options.domain;
+    _this._gaiaHub = options.gaiaHub;
+    _this._subdomainRegistrar = options.subdomainRegistrar;
+    _this._bnsNodes = options.bnsNodes;
     _this._gaiaService = new _gaiaService.GaiaService(_this._gaiaHub);
     return _this;
   }
@@ -120679,7 +120714,7 @@ function (_super) {
 }(nameService.NameService);
 
 exports.BlockstackService = BlockstackService;
-},{"@mojotech/json-type-validation":"jcIg","bip39":"tCYT","bitcoinjs-lib":"bZOe","blockstack":"OVDV","../..":"QCba","../../config":"C9JJ","../encryption":"m5br","../error":"yXIU","../gaia-service":"Svqq","../gaia-service/utils":"arWQ","../identity-utils":"j93N","../utils":"DXq1","./index":"gpdj","./utils":"rxEh"}],"arWQ":[function(require,module,exports) {
+},{"@mojotech/json-type-validation":"jcIg","bip39":"tCYT","bitcoinjs-lib":"bZOe","blockstack":"OVDV","../..":"QCba","../encryption":"m5br","../error":"yXIU","../error/package-error":"Z94C","../gaia-service":"Svqq","../gaia-service/utils":"arWQ","../identity-utils":"j93N","../utils":"DXq1","./index":"gpdj","./utils":"rxEh"}],"arWQ":[function(require,module,exports) {
 var __filename = "/Users/shadow/Umang/coinswitch/js-sdk/src/packages/gaia-service/utils.ts";
 "use strict";
 
@@ -120849,9 +120884,9 @@ var __generator = void 0 && (void 0).__generator || function (thisArg, body) {
 
 var log = (0, _2.getLogger)(__filename);
 
-var getContentFromGaiaHub = function getContentFromGaiaHub(blockstackId, filename, bnsNodes, prefix) {
+var getContentFromGaiaHub = function getContentFromGaiaHub(blockstackId, filename, bnsNodes) {
   return __awaiter(void 0, void 0, Promise, function () {
-    var fileUrl, gaiaDetails, options, finalContent, responseBody, cacheTTL, error_1, packageErrorCode, content, pubKey, addressFromPub;
+    var gaiaDetails, fileUrl, options, finalContent, cacheTTL, responseBody, content, pubKey, addressFromPub;
     return __generator(this, function (_a) {
       switch (_a.label) {
         case 0:
@@ -120861,18 +120896,13 @@ var getContentFromGaiaHub = function getContentFromGaiaHub(blockstackId, filenam
 
         case 1:
           gaiaDetails = _a.sent();
-          fileUrl = gaiaDetails.gaiaReadUrl + gaiaDetails.ownerAddress + "/" + (prefix ? prefix + "_" : "") + filename;
+          fileUrl = gaiaDetails.gaiaReadUrl + gaiaDetails.ownerAddress + "/" + filename;
           options = {
             json: true,
             method: "GET",
             url: fileUrl
           };
           cacheTTL = filename === nameservice.UPLOADABLE_JSON_FILES.CLIENT_CONFIG ? 3600 : undefined;
-          _a.label = 2;
-
-        case 2:
-          _a.trys.push([2, 4,, 5]);
-
           return [4
           /*yield*/
           , (0, _utils2.cachedFunctionCall)(options.url, cacheTTL, _utils2.httpJSONRequest, [options], function (data) {
@@ -120885,19 +120915,9 @@ var getContentFromGaiaHub = function getContentFromGaiaHub(blockstackId, filenam
             });
           })];
 
-        case 3:
+        case 2:
           responseBody = _a.sent();
-          log.debug("Response from " + filename, responseBody);
-          return [3
-          /*break*/
-          , 5];
 
-        case 4:
-          error_1 = _a.sent();
-          packageErrorCode = nameservice.BlockstackService.getGetPackageErrorCodeForFilename(filename);
-          throw _error.ErrorHelper.getPackageError(packageErrorCode, filename, error_1);
-
-        case 5:
           if (responseBody.indexOf("BlobNotFound") > 0 || responseBody.indexOf("NoSuchKey") > 0) {
             throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.GaiaEmptyResponse);
           } else {
@@ -120954,25 +120974,40 @@ var getGaiaDataFromBlockstackID = function getGaiaDataFromBlockstackID(blockstac
 
           bitcoinAddress = nameData.address;
           log.debug("ID owner: " + bitcoinAddress);
+          if (!nameData.zonefile.match(new RegExp("(.+)https:\/\/hub.cruxpay.com\/hub\/(.+)\/profile.json"))) return [3
+          /*break*/
+          , 3];
+          gaiaWrite = "https://" + nameData.zonefile.match(new RegExp("(.+)https:\/\/(.+)\/hub\/(.+)\/profile.json", "s"))[2];
+          return [4
+          /*yield*/
+          , getGaiaReadUrl(gaiaWrite)];
+
+        case 2:
+          gaiaRead = _a.sent();
+          return [3
+          /*break*/
+          , 6];
+
+        case 3:
           if (!nameData.zonefile.match(new RegExp("(.+)https:\/\/(.+)\/profile.json"))) return [3
           /*break*/
-          , 2];
+          , 4];
           gaiaRead = "https://" + nameData.zonefile.match(new RegExp("(.+)https:\/\/(.+)\/(.+)\/profile.json", "s"))[2] + "/";
           return [3
           /*break*/
-          , 4];
+          , 6];
 
-        case 2:
+        case 4:
           gaiaWrite = nameData.zonefile.match(new RegExp("https:\/\/(.+)")).slice(0, -1)[0];
           return [4
           /*yield*/
           , getGaiaReadUrl(gaiaWrite)];
 
-        case 3:
+        case 5:
           gaiaRead = _a.sent();
-          _a.label = 4;
+          _a.label = 6;
 
-        case 4:
+        case 6:
           gaiaDetails = {
             gaiaReadUrl: gaiaRead,
             gaiaWriteUrl: gaiaWrite,
@@ -121036,7 +121071,7 @@ var __filename = "/Users/shadow/Umang/coinswitch/js-sdk/src/packages/configurati
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.BlockstackConfigurationService = exports.NameServiceConfigurationService = void 0;
+exports.ConfigurationService = void 0;
 
 var _2 = require("..");
 
@@ -121048,13 +121083,531 @@ var _utils = require("./gaia-service/utils");
 
 var identityUtils = _interopRequireWildcard(require("./identity-utils"));
 
-var nameservice = _interopRequireWildcard(require("./name-service/blockstack-service"));
+var blockstackService = _interopRequireWildcard(require("./name-service/blockstack-service"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var __awaiter = void 0 && (void 0).__awaiter || function (thisArg, _arguments, P, generator) {
+  function adopt(value) {
+    return value instanceof P ? value : new P(function (resolve) {
+      resolve(value);
+    });
+  }
+
+  return new (P || (P = Promise))(function (resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+
+    step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
+};
+
+var __generator = void 0 && (void 0).__generator || function (thisArg, body) {
+  var _ = {
+    label: 0,
+    sent: function sent() {
+      if (t[0] & 1) throw t[1];
+      return t[1];
+    },
+    trys: [],
+    ops: []
+  },
+      f,
+      y,
+      t,
+      g;
+  return g = {
+    next: verb(0),
+    "throw": verb(1),
+    "return": verb(2)
+  }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
+    return this;
+  }), g;
+
+  function verb(n) {
+    return function (v) {
+      return step([n, v]);
+    };
+  }
+
+  function step(op) {
+    if (f) throw new TypeError("Generator is already executing.");
+
+    while (_) {
+      try {
+        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+        if (y = 0, t) op = [op[0] & 2, t.value];
+
+        switch (op[0]) {
+          case 0:
+          case 1:
+            t = op;
+            break;
+
+          case 4:
+            _.label++;
+            return {
+              value: op[1],
+              done: false
+            };
+
+          case 5:
+            _.label++;
+            y = op[1];
+            op = [0];
+            continue;
+
+          case 7:
+            op = _.ops.pop();
+
+            _.trys.pop();
+
+            continue;
+
+          default:
+            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+              _ = 0;
+              continue;
+            }
+
+            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+              _.label = op[1];
+              break;
+            }
+
+            if (op[0] === 6 && _.label < t[1]) {
+              _.label = t[1];
+              t = op;
+              break;
+            }
+
+            if (t && _.label < t[2]) {
+              _.label = t[2];
+
+              _.ops.push(op);
+
+              break;
+            }
+
+            if (t[2]) _.ops.pop();
+
+            _.trys.pop();
+
+            continue;
+        }
+
+        op = body.call(thisArg, _);
+      } catch (e) {
+        op = [6, e];
+        y = 0;
+      } finally {
+        f = t = 0;
+      }
+    }
+
+    if (op[0] & 5) throw op[1];
+    return {
+      value: op[0] ? op[1] : void 0,
+      done: true
+    };
+  }
+};
+
+var __read = void 0 && (void 0).__read || function (o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
+
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+      ar.push(r.value);
+    }
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
+    }
+  }
+
+  return ar;
+};
+
+var __spread = void 0 && (void 0).__spread || function () {
+  for (var ar = [], i = 0; i < arguments.length; i++) {
+    ar = ar.concat(__read(arguments[i]));
+  }
+
+  return ar;
+};
+
+var __values = void 0 && (void 0).__values || function (o) {
+  var s = typeof Symbol === "function" && Symbol.iterator,
+      m = s && o[s],
+      i = 0;
+  if (m) return m.call(o);
+  if (o && typeof o.length === "number") return {
+    next: function next() {
+      if (o && i >= o.length) o = void 0;
+      return {
+        value: o && o[i++],
+        done: !o
+      };
+    }
+  };
+  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+
+var log = (0, _2.getLogger)(__filename);
+var CONFIG_SUBDOMAIN = "_config";
+
+var ConfigurationService =
+/** @class */
+function () {
+  function ConfigurationService(clientName) {
+    var _this = this;
+
+    this.init = function () {
+      return __awaiter(_this, void 0, void 0, function () {
+        var _this = this;
+
+        return __generator(this, function (_a) {
+          switch (_a.label) {
+            case 0:
+              return [4
+              /*yield*/
+              , this._setupClientConfig().then(function () {
+                return Promise.all([_this._setupGlobalAssetMap(), _this._setupClientAssetMapping(), _this._setupNameServiceConfig()]);
+              }).then(function () {
+                return Promise.all([_this._setupReverseClientAssetMapping(), _this._setupResolvedClientAssetMapping()]);
+              })];
+
+            case 1:
+              _a.sent();
+
+              return [2
+              /*return*/
+              ];
+          }
+        });
+      });
+    };
+
+    this.getBlockstackServiceConfig = function (userCruxID, identityClaim) {
+      return __awaiter(_this, void 0, Promise, function () {
+        var nsConfig, ns, status, userBlockstackID, gaiaUrls, gaiaHub;
+        return __generator(this, function (_a) {
+          switch (_a.label) {
+            case 0:
+              if (!(this.clientConfig && this.nameServiceConfig)) {
+                throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.ClientNotInitialized);
+              }
+
+              nsConfig = this.nameServiceConfig;
+              if (!(userCruxID && identityClaim)) return [3
+              /*break*/
+              , 4];
+              ns = new blockstackService.BlockstackService(nsConfig);
+              return [4
+              /*yield*/
+              , ns.restoreIdentity(userCruxID, identityClaim)];
+
+            case 1:
+              _a.sent();
+
+              return [4
+              /*yield*/
+              , ns.getRegistrationStatus(identityClaim)];
+
+            case 2:
+              status = _a.sent();
+              if (!(status.status === blockstackService.SubdomainRegistrationStatus.DONE)) return [3
+              /*break*/
+              , 4];
+              userBlockstackID = identityUtils.IdTranslator.cruxToBlockstack(identityUtils.CruxId.fromString(userCruxID)).toString();
+              return [4
+              /*yield*/
+              , (0, _utils.getGaiaDataFromBlockstackID)(userBlockstackID, this.clientConfig.nameserviceConfiguration && this.clientConfig.nameserviceConfiguration.bnsNodes || _config.default.BLOCKSTACK.BNS_NODES)];
+
+            case 3:
+              gaiaUrls = _a.sent();
+              gaiaHub = gaiaUrls.gaiaWriteUrl;
+              nsConfig = Object.assign(this.nameServiceConfig, {
+                gaiaHub: gaiaHub
+              });
+              _a.label = 4;
+
+            case 4:
+              return [2
+              /*return*/
+              , nsConfig];
+          }
+        });
+      });
+    };
+
+    this.getBnsNodes = function () {
+      if (!_this.clientConfig) {
+        throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CouldNotFindBlockstackConfigurationServiceClientConfig);
+      }
+
+      var bnsNodes;
+
+      if (_this.clientConfig.nameserviceConfiguration && _this.clientConfig.nameserviceConfiguration.bnsNodes) {
+        // always append the extra configured BNS nodes (needs `downlevelIteration` flag enabled in tsconfig.json)
+        bnsNodes = __spread(new Set(__spread(_config.default.BLOCKSTACK.BNS_NODES, _this.clientConfig.nameserviceConfiguration.bnsNodes)));
+      } else {
+        bnsNodes = _config.default.BLOCKSTACK.BNS_NODES;
+      }
+
+      return bnsNodes;
+    };
+
+    this.getGaiaHub = function () {
+      if (!_this.clientConfig) {
+        throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CouldNotFindBlockstackConfigurationServiceClientConfig);
+      }
+
+      return _this.clientConfig.nameserviceConfiguration && _this.clientConfig.nameserviceConfiguration.gaiaHub || _config.default.BLOCKSTACK.GAIA_HUB;
+    };
+
+    this.getSubdomainRegistrar = function () {
+      if (!_this.clientConfig) {
+        throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CouldNotFindBlockstackConfigurationServiceClientConfig);
+      }
+
+      return _this.clientConfig.nameserviceConfiguration && _this.clientConfig.nameserviceConfiguration.subdomainRegistrar || _config.default.BLOCKSTACK.SUBDOMAIN_REGISTRAR;
+    };
+
+    this._setupNameServiceConfig = function () {
+      return __awaiter(_this, void 0, void 0, function () {
+        var nsConfiguration;
+        return __generator(this, function (_a) {
+          if (!this.clientConfig) {
+            throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CouldNotFindBlockstackConfigurationServiceClientConfig);
+          }
+
+          nsConfiguration = {
+            bnsNodes: this.getBnsNodes(),
+            domain: this.clientName + identityUtils.CRUX_DOMAIN_SUFFIX,
+            gaiaHub: this.getGaiaHub(),
+            subdomainRegistrar: this.getSubdomainRegistrar()
+          };
+          this.nameServiceConfig = nsConfiguration;
+          return [2
+          /*return*/
+          ];
+        });
+      });
+    };
+
+    this._setupClientConfig = function () {
+      return __awaiter(_this, void 0, Promise, function () {
+        var blockstackId, _a;
+
+        return __generator(this, function (_b) {
+          switch (_b.label) {
+            case 0:
+              blockstackId = new identityUtils.BlockstackId({
+                domain: this.clientName + identityUtils.CRUX_DOMAIN_SUFFIX,
+                subdomain: CONFIG_SUBDOMAIN
+              }).toString();
+              _a = this;
+              return [4
+              /*yield*/
+              , (0, _utils.getContentFromGaiaHub)(blockstackId, this.clientName + "_" + blockstackService.UPLOADABLE_JSON_FILES.CLIENT_CONFIG, _config.default.BLOCKSTACK.BNS_NODES)];
+
+            case 1:
+              _a.clientConfig = _b.sent();
+              return [2
+              /*return*/
+              ];
+          }
+        });
+      });
+    };
+
+    this._setupGlobalAssetMap = function () {
+      return __awaiter(_this, void 0, Promise, function () {
+        var clientConfig, globalMapping;
+        return __generator(this, function (_a) {
+          clientConfig = this.clientConfig;
+          globalMapping = {};
+
+          if (clientConfig && clientConfig.assetList) {
+            clientConfig.assetList.forEach(function (asset) {
+              globalMapping[asset.assetId] = asset;
+            });
+            this.globalAssetMap = globalMapping;
+          } else {
+            throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CouldNotFindAssetListInClientConfig);
+          }
+
+          return [2
+          /*return*/
+          ];
+        });
+      });
+    };
+
+    this._setupClientAssetMapping = function () {
+      return __awaiter(_this, void 0, Promise, function () {
+        var lowerAssetMapping, _a, _b, walletCurrencySymbol;
+
+        var e_1, _c;
+
+        return __generator(this, function (_d) {
+          lowerAssetMapping = {};
+
+          if (this.clientConfig && this.clientConfig.assetMapping) {
+            try {
+              for (_a = __values(Object.keys(this.clientConfig.assetMapping)), _b = _a.next(); !_b.done; _b = _a.next()) {
+                walletCurrencySymbol = _b.value;
+                lowerAssetMapping[walletCurrencySymbol.toLowerCase()] = this.clientConfig.assetMapping[walletCurrencySymbol];
+              }
+            } catch (e_1_1) {
+              e_1 = {
+                error: e_1_1
+              };
+            } finally {
+              try {
+                if (_b && !_b.done && (_c = _a.return)) _c.call(_a);
+              } finally {
+                if (e_1) throw e_1.error;
+              }
+            }
+          }
+
+          this.clientAssetMapping = lowerAssetMapping;
+          return [2
+          /*return*/
+          ];
+        });
+      });
+    };
+
+    this._setupReverseClientAssetMapping = function () {
+      return __awaiter(_this, void 0, Promise, function () {
+        var assetIdToWalletCurrencySymbolMap, _a, _b, walletCurrencySymbol;
+
+        var e_2, _c;
+
+        return __generator(this, function (_d) {
+          assetIdToWalletCurrencySymbolMap = {};
+
+          if (this.clientAssetMapping) {
+            try {
+              for (_a = __values(Object.keys(this.clientAssetMapping)), _b = _a.next(); !_b.done; _b = _a.next()) {
+                walletCurrencySymbol = _b.value;
+                walletCurrencySymbol = walletCurrencySymbol.toLowerCase();
+                assetIdToWalletCurrencySymbolMap[this.clientAssetMapping[walletCurrencySymbol]] = walletCurrencySymbol;
+              }
+            } catch (e_2_1) {
+              e_2 = {
+                error: e_2_1
+              };
+            } finally {
+              try {
+                if (_b && !_b.done && (_c = _a.return)) _c.call(_a);
+              } finally {
+                if (e_2) throw e_2.error;
+              }
+            }
+          }
+
+          this.reverseClientAssetMapping = assetIdToWalletCurrencySymbolMap;
+          return [2
+          /*return*/
+          ];
+        });
+      });
+    };
+
+    this._setupResolvedClientAssetMapping = function () {
+      return __awaiter(_this, void 0, Promise, function () {
+        var resolvedClientAssetMapping, _a, _b, currencySymbol;
+
+        var e_3, _c;
+
+        return __generator(this, function (_d) {
+          resolvedClientAssetMapping = {};
+
+          if (this.globalAssetMap && this.clientConfig && this.clientConfig.assetMapping) {
+            try {
+              for (_a = __values(Object.keys(this.clientConfig.assetMapping)), _b = _a.next(); !_b.done; _b = _a.next()) {
+                currencySymbol = _b.value;
+
+                if (this.globalAssetMap[this.clientConfig.assetMapping[currencySymbol]]) {
+                  resolvedClientAssetMapping[currencySymbol] = this.globalAssetMap[this.clientConfig.assetMapping[currencySymbol]];
+                }
+              }
+            } catch (e_3_1) {
+              e_3 = {
+                error: e_3_1
+              };
+            } finally {
+              try {
+                if (_b && !_b.done && (_c = _a.return)) _c.call(_a);
+              } finally {
+                if (e_3) throw e_3.error;
+              }
+            }
+          }
+
+          this.resolvedClientAssetMap = resolvedClientAssetMapping;
+          return [2
+          /*return*/
+          ];
+        });
+      });
+    };
+
+    this.clientName = clientName;
+    log.info("BlockstackConfigurationService initialised with default configs");
+  }
+
+  return ConfigurationService;
+}();
+
+exports.ConfigurationService = ConfigurationService;
+},{"..":"QCba","../config":"C9JJ","./error":"yXIU","./gaia-service/utils":"arWQ","./identity-utils":"j93N","./name-service/blockstack-service":"EjPX"}],"KZir":[function(require,module,exports) {
+var __filename = "/Users/shadow/Umang/coinswitch/js-sdk/src/packages/storage.ts";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.LocalStorage = exports.StorageService = void 0;
+
+var _2 = require("..");
 
 var __extends = void 0 && (void 0).__extends || function () {
   var _extendStatics = function extendStatics(d, b) {
@@ -121225,113 +121778,71 @@ var __generator = void 0 && (void 0).__generator || function (thisArg, body) {
   }
 };
 
-var __values = void 0 && (void 0).__values || function (o) {
-  var s = typeof Symbol === "function" && Symbol.iterator,
-      m = s && o[s],
-      i = 0;
-  if (m) return m.call(o);
-  if (o && typeof o.length === "number") return {
-    next: function next() {
-      if (o && i >= o.length) o = void 0;
-      return {
-        value: o && o[i++],
-        done: !o
-      };
-    }
-  };
-  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-};
+var log = (0, _2.getLogger)(__filename); // Storage service abstraction
 
-var log = (0, _2.getLogger)(__filename);
-var CONFIG_SUBDOMAIN = "_config";
+/* istanbul ignore next */
 
-var NameServiceConfigurationService =
+var StorageService =
 /** @class */
 function () {
-  function NameServiceConfigurationService() {
+  function StorageService() {
     var _this = this;
 
-    this.getResolvedClientAssetMapping = function () {
+    this.setItem = function (key, value) {
       return __awaiter(_this, void 0, Promise, function () {
         return __generator(this, function (_a) {
           return [2
           /*return*/
-          , {}];
+          , undefined];
         });
       });
     };
 
-    this.translateSymbolToAssetId = function (currencySymbol) {
+    this.getItem = function (key) {
       return __awaiter(_this, void 0, Promise, function () {
         return __generator(this, function (_a) {
           return [2
           /*return*/
-          , ""];
+          , null];
         });
       });
     };
 
-    this.translateAssetIdToSymbol = function (assetId) {
+    this.setJSON = function (key, jsonObj) {
       return __awaiter(_this, void 0, Promise, function () {
+        var objString;
         return __generator(this, function (_a) {
+          objString = JSON.stringify(jsonObj);
           return [2
           /*return*/
-          , ""];
+          , this.setItem(key, objString)];
         });
       });
     };
 
-    log.info("Initizing NameServiceConfigurationService with options:- ");
-  }
-
-  return NameServiceConfigurationService;
-}();
-
-exports.NameServiceConfigurationService = NameServiceConfigurationService;
-
-var BlockstackConfigurationService =
-/** @class */
-function (_super) {
-  __extends(BlockstackConfigurationService, _super);
-
-  function BlockstackConfigurationService(clientName, cruxID) {
-    var _this = _super.call(this) || this;
-
-    _this.init = function () {
-      return __awaiter(_this, void 0, void 0, function () {
-        var _a, _b, _c, _d;
-
-        return __generator(this, function (_e) {
-          switch (_e.label) {
+    this.getJSON = function (key) {
+      return __awaiter(_this, void 0, Promise, function () {
+        var objString;
+        return __generator(this, function (_a) {
+          switch (_a.label) {
             case 0:
-              _a = this;
               return [4
               /*yield*/
-              , this._getClientConfig()];
+              , this.getItem(key)];
 
             case 1:
-              _a.clientConfig = _e.sent();
-              _b = this;
-              return [4
-              /*yield*/
-              , this._getGlobalMapping()];
+              objString = _a.sent();
 
-            case 2:
-              _b.globalAssetMap = _e.sent();
-              _c = this;
-              return [4
-              /*yield*/
-              , this._getClientAssetMapping()];
+              if (objString) {
+                return [2
+                /*return*/
+                , Promise.resolve(JSON.parse(objString))];
+              } else {
+                return [2
+                /*return*/
+                , Promise.resolve(null)];
+              }
 
-            case 3:
-              _c.clientAssetMapping = _e.sent();
-              _d = this;
-              return [4
-              /*yield*/
-              , this._getReverseClientAssetMapping()];
-
-            case 4:
-              _d.reverseClientAssetMapping = _e.sent();
               return [2
               /*return*/
               ];
@@ -121339,304 +121850,14 @@ function (_super) {
         });
       });
     };
-
-    _this.getResolvedClientAssetMapping = function () {
-      return __awaiter(_this, void 0, Promise, function () {
-        var resolvedClientAssetMapping, _a, _b, currencySymbol;
-
-        var e_1, _c;
-
-        return __generator(this, function (_d) {
-          resolvedClientAssetMapping = {};
-
-          if (this.globalAssetMap && this.clientConfig && this.clientConfig.assetMapping) {
-            try {
-              for (_a = __values(Object.keys(this.clientConfig.assetMapping)), _b = _a.next(); !_b.done; _b = _a.next()) {
-                currencySymbol = _b.value;
-
-                if (this.globalAssetMap[this.clientConfig.assetMapping[currencySymbol]]) {
-                  resolvedClientAssetMapping[currencySymbol] = this.globalAssetMap[this.clientConfig.assetMapping[currencySymbol]];
-                }
-              }
-            } catch (e_1_1) {
-              e_1 = {
-                error: e_1_1
-              };
-            } finally {
-              try {
-                if (_b && !_b.done && (_c = _a.return)) _c.call(_a);
-              } finally {
-                if (e_1) throw e_1.error;
-              }
-            }
-          }
-
-          return [2
-          /*return*/
-          , resolvedClientAssetMapping];
-        });
-      });
-    };
-
-    _this.getBlockstackServiceForConfig = function () {
-      return __awaiter(_this, void 0, Promise, function () {
-        var ns, gaiaHub, gaiaUrls, domain, nsConfiguration;
-        return __generator(this, function (_a) {
-          switch (_a.label) {
-            case 0:
-              if (!this.clientConfig) {
-                throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CouldNotFindBlockstackConfigurationServiceClientConfig);
-              }
-
-              if (!this.blockstackID) return [3
-              /*break*/
-              , 2];
-              return [4
-              /*yield*/
-              , (0, _utils.getGaiaDataFromBlockstackID)(this.blockstackID, this.clientConfig.nameserviceConfiguration && this.clientConfig.nameserviceConfiguration.bnsNodes || _config.default.BLOCKSTACK.BNS_NODES)];
-
-            case 1:
-              gaiaUrls = _a.sent();
-              gaiaHub = gaiaUrls.gaiaWriteUrl;
-              _a.label = 2;
-
-            case 2:
-              domain = this.clientName + identityUtils.CRUX_DOMAIN_SUFFIX;
-              nsConfiguration = {
-                domain: domain,
-                gaiaHub: gaiaHub
-              };
-
-              if (this.clientConfig.nameserviceConfiguration) {
-                nsConfiguration.bnsNodes = this.clientConfig.nameserviceConfiguration.bnsNodes;
-                nsConfiguration.domain = domain;
-                nsConfiguration.gaiaHub = gaiaHub || this.clientConfig.nameserviceConfiguration.gaiaHub;
-                nsConfiguration.subdomainRegistrar = this.clientConfig.nameserviceConfiguration.subdomainRegistrar;
-              }
-
-              ns = new nameservice.BlockstackService(nsConfiguration);
-              return [2
-              /*return*/
-              , ns];
-          }
-        });
-      });
-    };
-
-    _this.translateSymbolToAssetId = function (currencySymbol) {
-      return __awaiter(_this, void 0, Promise, function () {
-        return __generator(this, function (_a) {
-          return [2
-          /*return*/
-          , this.clientAssetMapping[currencySymbol]];
-        });
-      });
-    };
-
-    _this.translateAssetIdToSymbol = function (assetId) {
-      return __awaiter(_this, void 0, Promise, function () {
-        return __generator(this, function (_a) {
-          return [2
-          /*return*/
-          , this.reverseClientAssetMapping[assetId]];
-        });
-      });
-    };
-
-    _this._getGlobalMapping = function () {
-      return __awaiter(_this, void 0, Promise, function () {
-        var clientConfig, globalMapping;
-        return __generator(this, function (_a) {
-          clientConfig = this.clientConfig;
-          globalMapping = {};
-
-          if (clientConfig && clientConfig.assetList) {
-            clientConfig.assetList.forEach(function (asset) {
-              globalMapping[asset.assetId] = asset;
-            });
-            return [2
-            /*return*/
-            , globalMapping];
-          } else {
-            throw _error.ErrorHelper.getPackageError(_error.PackageErrorCode.CouldNotFindAssetListInClientConfig);
-          }
-
-          return [2
-          /*return*/
-          ];
-        });
-      });
-    };
-
-    _this._getClientConfig = function () {
-      return __awaiter(_this, void 0, Promise, function () {
-        var blockstackId;
-        return __generator(this, function (_a) {
-          switch (_a.label) {
-            case 0:
-              blockstackId = new identityUtils.BlockstackId({
-                domain: this.clientName + identityUtils.CRUX_DOMAIN_SUFFIX,
-                subdomain: CONFIG_SUBDOMAIN
-              }).toString();
-              return [4
-              /*yield*/
-              , (0, _utils.getContentFromGaiaHub)(blockstackId, nameservice.UPLOADABLE_JSON_FILES.CLIENT_CONFIG, _config.default.BLOCKSTACK.BNS_NODES, this.clientName)];
-
-            case 1:
-              return [2
-              /*return*/
-              , _a.sent()];
-          }
-        });
-      });
-    };
-
-    _this._getClientAssetMapping = function () {
-      return __awaiter(_this, void 0, Promise, function () {
-        var clientConfig, lowerAssetMapping, _a, _b, walletCurrencySymbol;
-
-        var e_2, _c;
-
-        return __generator(this, function (_d) {
-          clientConfig = this.clientConfig;
-          lowerAssetMapping = {};
-
-          if (clientConfig && clientConfig.assetMapping) {
-            try {
-              for (_a = __values(Object.keys(clientConfig.assetMapping)), _b = _a.next(); !_b.done; _b = _a.next()) {
-                walletCurrencySymbol = _b.value;
-                lowerAssetMapping[walletCurrencySymbol.toLowerCase()] = clientConfig.assetMapping[walletCurrencySymbol];
-              }
-            } catch (e_2_1) {
-              e_2 = {
-                error: e_2_1
-              };
-            } finally {
-              try {
-                if (_b && !_b.done && (_c = _a.return)) _c.call(_a);
-              } finally {
-                if (e_2) throw e_2.error;
-              }
-            }
-
-            return [2
-            /*return*/
-            , lowerAssetMapping];
-          } else {
-            return [2
-            /*return*/
-            , {}];
-          }
-
-          return [2
-          /*return*/
-          ];
-        });
-      });
-    };
-
-    _this._getReverseClientAssetMapping = function () {
-      return __awaiter(_this, void 0, Promise, function () {
-        var assetIdToWalletCurrencySymbolMap, _a, _b, walletCurrencySymbol;
-
-        var e_3, _c;
-
-        return __generator(this, function (_d) {
-          assetIdToWalletCurrencySymbolMap = {};
-
-          if (this.clientAssetMapping) {
-            try {
-              for (_a = __values(Object.keys(this.clientAssetMapping)), _b = _a.next(); !_b.done; _b = _a.next()) {
-                walletCurrencySymbol = _b.value;
-                walletCurrencySymbol = walletCurrencySymbol.toLowerCase();
-                assetIdToWalletCurrencySymbolMap[this.clientAssetMapping[walletCurrencySymbol]] = walletCurrencySymbol;
-              }
-            } catch (e_3_1) {
-              e_3 = {
-                error: e_3_1
-              };
-            } finally {
-              try {
-                if (_b && !_b.done && (_c = _a.return)) _c.call(_a);
-              } finally {
-                if (e_3) throw e_3.error;
-              }
-            }
-
-            return [2
-            /*return*/
-            , assetIdToWalletCurrencySymbolMap];
-          } else {
-            return [2
-            /*return*/
-            , {}];
-          }
-
-          return [2
-          /*return*/
-          ];
-        });
-      });
-    };
-
-    _this.clientName = clientName;
-
-    if (cruxID) {
-      _this.blockstackID = identityUtils.IdTranslator.cruxToBlockstack(identityUtils.CruxId.fromString(cruxID)).toString();
-    }
-
-    _this.blockstackNameservice = new nameservice.BlockstackService({
-      domain: _this.clientName + identityUtils.CRUX_DOMAIN_SUFFIX
-    });
-    log.info("BlockstackConfigurationService initialised with default configs");
-    return _this;
   }
 
-  return BlockstackConfigurationService;
-}(NameServiceConfigurationService);
-
-exports.BlockstackConfigurationService = BlockstackConfigurationService;
-},{"..":"QCba","../config":"C9JJ","./error":"yXIU","./gaia-service/utils":"arWQ","./identity-utils":"j93N","./name-service/blockstack-service":"EjPX"}],"oS47":[function(require,module,exports) {
-var __filename = "/Users/shadow/Umang/coinswitch/js-sdk/src/packages/storage-local.ts";
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.LocalStorage = void 0;
-
-var _ = require("..");
-
-var _storage = require("./storage");
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
+  return StorageService;
 }();
 
-var log = (0, _.getLogger)(__filename); // LocalStorage service implementation
+exports.StorageService = StorageService;
 
+// LocalStorage service implementation
 var LocalStorage =
 /** @class */
 function (_super) {
@@ -121646,11 +121867,23 @@ function (_super) {
     var _this = _super.call(this) || this;
 
     _this.setItem = function (key, value) {
-      _this.storage.setItem(key, value);
+      return __awaiter(_this, void 0, Promise, function () {
+        return __generator(this, function (_a) {
+          return [2
+          /*return*/
+          , Promise.resolve(this.storage.setItem(key, value))];
+        });
+      });
     };
 
     _this.getItem = function (key) {
-      return _this.storage.getItem(key);
+      return __awaiter(_this, void 0, Promise, function () {
+        return __generator(this, function (_a) {
+          return [2
+          /*return*/
+          , Promise.resolve(this.storage.getItem(key))];
+        });
+      });
     };
 
     _this.storage = localStorage;
@@ -121659,30 +121892,20 @@ function (_super) {
   }
 
   return LocalStorage;
-}(_storage.StorageService);
+}(StorageService);
 
 exports.LocalStorage = LocalStorage;
-},{"..":"QCba","./storage":"KZir"}],"LrjU":[function(require,module,exports) {
+},{"..":"QCba"}],"LrjU":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "BlockstackConfigurationService", {
-  enumerable: true,
-  get: function () {
-    return _configurationService.BlockstackConfigurationService;
-  }
-});
-Object.defineProperty(exports, "LocalStorage", {
-  enumerable: true,
-  get: function () {
-    return _storageLocal.LocalStorage;
-  }
-});
-exports.utils = exports.storage = exports.blockstackService = exports.nameService = exports.identityUtils = exports.gaiaService = exports.errors = exports.encryption = void 0;
+exports.utils = exports.storage = exports.blockstackService = exports.nameService = exports.identityUtils = exports.gaiaService = exports.errors = exports.encryption = exports.configurationService = void 0;
 
-var _configurationService = require("./configuration-service");
+var configurationService = _interopRequireWildcard(require("./configuration-service"));
+
+exports.configurationService = configurationService;
 
 var encryption = _interopRequireWildcard(require("./encryption"));
 
@@ -121712,8 +121935,6 @@ var storage = _interopRequireWildcard(require("./storage"));
 
 exports.storage = storage;
 
-var _storageLocal = require("./storage-local");
-
 var utils = _interopRequireWildcard(require("./utils"));
 
 exports.utils = utils;
@@ -121721,7 +121942,7 @@ exports.utils = utils;
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-},{"./configuration-service":"B6iO","./encryption":"m5br","./error":"yXIU","./gaia-service":"Svqq","./identity-utils":"j93N","./name-service":"gpdj","./name-service/blockstack-service":"EjPX","./storage":"KZir","./storage-local":"oS47","./utils":"DXq1"}],"QCba":[function(require,module,exports) {
+},{"./configuration-service":"B6iO","./encryption":"m5br","./error":"yXIU","./gaia-service":"Svqq","./identity-utils":"j93N","./name-service":"gpdj","./name-service/blockstack-service":"EjPX","./storage":"KZir","./utils":"DXq1"}],"QCba":[function(require,module,exports) {
 var __filename = "/Users/shadow/Umang/coinswitch/js-sdk/src/index.ts";
 "use strict";
 
@@ -121729,6 +121950,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.getLogger = getLogger;
+Object.defineProperty(exports, "blockstackService", {
+  enumerable: true,
+  get: function () {
+    return _packages.blockstackService;
+  }
+});
 Object.defineProperty(exports, "encryption", {
   enumerable: true,
   get: function () {
@@ -121753,7 +121980,7 @@ Object.defineProperty(exports, "storage", {
     return _packages.storage;
   }
 });
-exports.CruxClient = exports.PayIDClaim = exports.AddressMapping = void 0;
+exports.CruxClient = exports.PayIDClaim = exports.AddressMapping = exports.cacheStorage = void 0;
 
 var _jsLogger = _interopRequireDefault(require("js-logger"));
 
@@ -121763,8 +121990,6 @@ require("regenerator-runtime/runtime");
 
 var _config = _interopRequireDefault(require("./config"));
 
-var _identityUtils = require("./packages/identity-utils");
-
 var _packages = require("./packages");
 
 var _utils = require("./packages/name-service/utils");
@@ -121772,32 +121997,6 @@ var _utils = require("./packages/name-service/utils");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
 
 var __awaiter = void 0 && (void 0).__awaiter || function (thisArg, _arguments, P, generator) {
   function adopt(value) {
@@ -121970,6 +122169,10 @@ function getLogger(filename) {
 
 var log = getLogger(__filename); // Importing packages
 
+// Setup cache storage
+var cacheStorage;
+exports.cacheStorage = cacheStorage;
+
 var AddressMapping =
 /** @class */
 function () {
@@ -122109,7 +122312,14 @@ function () {
 
               json = this.toJSON(); // log.debug(`PayIDClaim being stored to storage:`, json)
 
-              storageService.setJSON("payIDClaim", json);
+              return [4
+              /*yield*/
+              , storageService.setJSON("payIDClaim", json)];
+
+            case 2:
+              // log.debug(`PayIDClaim being stored to storage:`, json)
+              _a.sent();
+
               return [2
               /*return*/
               ];
@@ -122143,10 +122353,10 @@ function () {
 
 exports.PayIDClaim = PayIDClaim;
 
-var CruxPayPeer =
+var CruxClient =
 /** @class */
 function () {
-  function CruxPayPeer(options) {
+  function CruxClient(options) {
     var _this = this;
 
     this.hasPayIDClaim = function () {
@@ -122163,92 +122373,85 @@ function () {
         return __generator(this, function (_a) {
           switch (_a.label) {
             case 0:
-              _a.trys.push([0, 10,, 11]);
+              _a.trys.push([0, 11,, 12]);
 
-              if (!this._hasPayIDClaimStored()) return [3
+              return [4
+              /*yield*/
+              , this._hasPayIDClaimStored()];
+
+            case 1:
+              if (!_a.sent()) return [3
               /*break*/
-              , 8];
+              , 9];
               return [4
               /*yield*/
               , this._payIDClaim.decrypt(oldEncryptionKey)];
 
-            case 1:
+            case 2:
               _a.sent();
 
-              _a.label = 2;
+              _a.label = 3;
 
-            case 2:
-              _a.trys.push([2, 4,, 6]);
+            case 3:
+              _a.trys.push([3, 5,, 7]);
 
               return [4
               /*yield*/
               , this._payIDClaim.encrypt(newEncryptionKey)];
 
-            case 3:
+            case 4:
               _a.sent();
 
               return [3
               /*break*/
-              , 6];
+              , 7];
 
-            case 4:
+            case 5:
               err_1 = _a.sent();
               return [4
               /*yield*/
               , this._payIDClaim.encrypt(oldEncryptionKey)];
 
-            case 5:
+            case 6:
               _a.sent();
 
               return [2
               /*return*/
               , false];
 
-            case 6:
+            case 7:
               return [4
               /*yield*/
               , this._payIDClaim.save(this._storage)];
 
-            case 7:
+            case 8:
               _a.sent();
 
               return [2
               /*return*/
               , true];
 
-            case 8:
+            case 9:
               return [2
               /*return*/
               , true];
 
-            case 9:
+            case 10:
               return [3
               /*break*/
-              , 11];
+              , 12];
 
-            case 10:
+            case 11:
               err_2 = _a.sent();
               throw _packages.errors.CruxClientError.fromError(err_2);
 
-            case 11:
+            case 12:
               return [2
               /*return*/
               ];
           }
         });
       });
-    };
-
-    this.getAssetMapping = function () {
-      try {
-        if (_this._resolvedClientAssetMapping) {
-          return _this._resolvedClientAssetMapping;
-        } else {
-          throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.ClientNotInitialized);
-        }
-      } catch (err) {
-        throw _packages.errors.CruxClientError.fromError(err);
-      }
     };
 
     this.isCruxIDAvailable = function (cruxIDSubdomain) {
@@ -122269,11 +122472,15 @@ function () {
             case 0:
               _a.trys.push([0, 3,, 4]);
 
+              if (!(this._configService && this._nameService)) {
+                throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.ClientNotInitialized);
+              }
+
               walletCurrencySymbol = walletCurrencySymbol.toLowerCase();
               correspondingAssetId = "";
               return [4
               /*yield*/
-              , this._configService.translateSymbolToAssetId(walletCurrencySymbol)];
+              , this._translateSymbolToAssetId(walletCurrencySymbol)];
 
             case 1:
               correspondingAssetId = _a.sent();
@@ -122313,385 +122520,7 @@ function () {
       });
     };
 
-    this._setPayIDClaim = function (payIDClaim) {
-      _this._payIDClaim = payIDClaim;
-    };
-
-    this._getConfigService = function () {
-      return __awaiter(_this, void 0, Promise, function () {
-        var ns, status;
-        return __generator(this, function (_a) {
-          switch (_a.label) {
-            case 0:
-              if (!!this._configService) return [3
-              /*break*/
-              , 5];
-              ns = new _packages.blockstackService.BlockstackService({
-                domain: this.walletClientName + _identityUtils.CRUX_DOMAIN_SUFFIX
-              });
-              return [4
-              /*yield*/
-              , this._payIDClaim.decrypt()];
-
-            case 1:
-              _a.sent();
-
-              return [4
-              /*yield*/
-              , ns.restoreIdentity(this._payIDClaim.virtualAddress, {
-                secrets: this._payIDClaim.identitySecrets
-              })];
-
-            case 2:
-              _a.sent();
-
-              return [4
-              /*yield*/
-              , ns.getRegistrationStatus({
-                secrets: this._payIDClaim.identitySecrets
-              })];
-
-            case 3:
-              status = _a.sent();
-              return [4
-              /*yield*/
-              , this._payIDClaim.encrypt()];
-
-            case 4:
-              _a.sent();
-
-              if (status.status === _packages.blockstackService.SubdomainRegistrationStatus.DONE) {
-                this._configService = new _packages.BlockstackConfigurationService(this.walletClientName, this._payIDClaim.virtualAddress);
-              } else {
-                this._configService = new _packages.BlockstackConfigurationService(this.walletClientName);
-              }
-
-              _a.label = 5;
-
-            case 5:
-              return [2
-              /*return*/
-              , this._configService];
-          }
-        });
-      });
-    };
-
-    this._initializeNameService = function (configService) {
-      return __awaiter(_this, void 0, void 0, function () {
-        var _a;
-
-        return __generator(this, function (_b) {
-          switch (_b.label) {
-            case 0:
-              if (!!this._nameService) return [3
-              /*break*/
-              , 3];
-              return [4
-              /*yield*/
-              , configService.init()];
-
-            case 1:
-              _b.sent();
-
-              _a = this;
-              return [4
-              /*yield*/
-              , configService.getBlockstackServiceForConfig()];
-
-            case 2:
-              _a._nameService = _b.sent();
-              _b.label = 3;
-
-            case 3:
-              return [2
-              /*return*/
-              ];
-          }
-        });
-      });
-    };
-
-    this._restoreIdentity = function () {
-      return __awaiter(_this, void 0, void 0, function () {
-        var identityClaim;
-        return __generator(this, function (_a) {
-          switch (_a.label) {
-            case 0:
-              if (!(this._payIDClaim && this._payIDClaim.identitySecrets)) return [3
-              /*break*/
-              , 8];
-              return [4
-              /*yield*/
-              , this._payIDClaim.decrypt()];
-
-            case 1:
-              _a.sent();
-
-              _a.label = 2;
-
-            case 2:
-              _a.trys.push([2,, 4, 7]);
-
-              return [4
-              /*yield*/
-              , this._nameService.restoreIdentity(this._payIDClaim.virtualAddress, {
-                secrets: this._payIDClaim.identitySecrets
-              })];
-
-            case 3:
-              identityClaim = _a.sent();
-              this._payIDClaim.identitySecrets = identityClaim.secrets;
-              log.info("Identity restored");
-              return [3
-              /*break*/
-              , 7];
-
-            case 4:
-              log.debug("finally block");
-              return [4
-              /*yield*/
-              , this._payIDClaim.encrypt()];
-
-            case 5:
-              _a.sent();
-
-              return [4
-              /*yield*/
-              , this._payIDClaim.save(this._storage)];
-
-            case 6:
-              _a.sent();
-
-              return [7
-              /*endfinally*/
-              ];
-
-            case 7:
-              return [3
-              /*break*/
-              , 9];
-
-            case 8:
-              log.info("payIDClaim or identitySecrets not available! Identity restoration skipped");
-              _a.label = 9;
-
-            case 9:
-              return [2
-              /*return*/
-              ];
-          }
-        });
-      });
-    };
-
-    this._hasPayIDClaimStored = function () {
-      var payIDClaim = _this._storage.getJSON("payIDClaim");
-
-      return Boolean(payIDClaim);
-    };
-
-    this._options = Object.assign({}, options); // TODO: Need to validate options
-
-    this._getEncryptionKey = this._options.getEncryptionKey; // log.debug(`Encryption key:`, this._getEncryptionKey())
-    // Setting up the default modules as fallbacks
-
-    this._storage = this._options.storage || new _packages.LocalStorage();
-    this._encryption = this._options.encryption || _packages.encryption.Encryption;
-    this._nameService = this._options.nameService;
-
-    if (this._options.privateKey) {
-      this._keyPair = _packages.utils.getKeyPairFromPrivKey(this._options.privateKey);
-    }
-
-    this.walletClientName = this._options.walletClientName;
-    log.info("Config mode:", _config.default.CONFIG_MODE);
-    log.info("CruxPayPeer Initialised");
-  }
-
-  CruxPayPeer.prototype.init = function () {
-    return __awaiter(this, void 0, void 0, function () {
-      var payIDClaim, registeredCruxID, _a, registeredCruxID, payIDClaim, _b, _c;
-
-      return __generator(this, function (_d) {
-        switch (_d.label) {
-          case 0:
-            if (!this._hasPayIDClaimStored()) return [3
-            /*break*/
-            , 6];
-            log.debug("using the stored payIDClaim");
-            payIDClaim = this._storage.getJSON("payIDClaim");
-            if (!this._keyPair) return [3
-            /*break*/
-            , 2];
-            return [4
-            /*yield*/
-            , (0, _utils.getCruxIDByAddress)(_config.default.BLOCKSTACK.BNS_NODES, this._keyPair.address)];
-
-          case 1:
-            registeredCruxID = _d.sent();
-
-            if (registeredCruxID) {
-              CruxPayPeer.validateCruxIDByWallet(this.walletClientName, registeredCruxID);
-
-              if (registeredCruxID !== payIDClaim.virtualAddress) {
-                throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.KeyPairMismatch);
-              }
-            } else {
-              throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.KeyPairMismatch);
-            }
-
-            _d.label = 2;
-
-          case 2:
-            this._setPayIDClaim(new PayIDClaim(payIDClaim, {
-              getEncryptionKey: this._getEncryptionKey
-            }));
-
-            _a = this;
-            return [4
-            /*yield*/
-            , this._getConfigService()];
-
-          case 3:
-            _a._configService = _d.sent();
-            return [4
-            /*yield*/
-            , this._initializeNameService(this._configService)];
-
-          case 4:
-            _d.sent();
-
-            return [4
-            /*yield*/
-            , this._restoreIdentity()];
-
-          case 5:
-            _d.sent();
-
-            return [3
-            /*break*/
-            , 16];
-
-          case 6:
-            if (!this._keyPair) return [3
-            /*break*/
-            , 14];
-            log.debug("using the keyPair provided");
-            return [4
-            /*yield*/
-            , (0, _utils.getCruxIDByAddress)(_config.default.BLOCKSTACK.BNS_NODES, this._keyPair.address)];
-
-          case 7:
-            registeredCruxID = _d.sent();
-            if (!registeredCruxID) return [3
-            /*break*/
-            , 11];
-            CruxPayPeer.validateCruxIDByWallet(this.walletClientName, registeredCruxID);
-            payIDClaim = {
-              identitySecrets: {
-                identityKeyPair: this._keyPair
-              },
-              virtualAddress: registeredCruxID || undefined
-            };
-
-            this._setPayIDClaim(new PayIDClaim(payIDClaim, {
-              getEncryptionKey: this._getEncryptionKey
-            }));
-
-            _b = this;
-            return [4
-            /*yield*/
-            , this._getConfigService()];
-
-          case 8:
-            _b._configService = _d.sent();
-            return [4
-            /*yield*/
-            , this._initializeNameService(this._configService)];
-
-          case 9:
-            _d.sent();
-
-            return [4
-            /*yield*/
-            , this._restoreIdentity()];
-
-          case 10:
-            _d.sent();
-
-            return [3
-            /*break*/
-            , 13];
-
-          case 11:
-            this._configService = new _packages.BlockstackConfigurationService(this.walletClientName);
-            return [4
-            /*yield*/
-            , this._initializeNameService(this._configService)];
-
-          case 12:
-            _d.sent();
-
-            _d.label = 13;
-
-          case 13:
-            return [3
-            /*break*/
-            , 16];
-
-          case 14:
-            log.debug("falling back without any payIDClaim");
-            this._configService = new _packages.BlockstackConfigurationService(this.walletClientName);
-            return [4
-            /*yield*/
-            , this._initializeNameService(this._configService)];
-
-          case 15:
-            _d.sent();
-
-            _d.label = 16;
-
-          case 16:
-            _c = this;
-            return [4
-            /*yield*/
-            , this._configService.getResolvedClientAssetMapping()];
-
-          case 17:
-            _c._resolvedClientAssetMapping = _d.sent();
-            log.debug("resolved client asset list is:- ", this._resolvedClientAssetMapping);
-            log.info("CruxPayPeer: Done init");
-            return [2
-            /*return*/
-            ];
-        }
-      });
-    });
-  };
-
-  CruxPayPeer.validateCruxIDByWallet = function (walletClientName, cruxIDString) {
-    var cruxID = _packages.identityUtils.CruxId.fromString(cruxIDString);
-
-    if (cruxID.components.domain !== walletClientName) {
-      throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.DifferentWalletCruxID);
-    }
-  };
-
-  return CruxPayPeer;
-}(); // Wallets specific SDK code
-
-
-var CruxClient =
-/** @class */
-function (_super) {
-  __extends(CruxClient, _super);
-
-  function CruxClient() {
-    var _this = _super !== null && _super.apply(this, arguments) || this; // NameService specific methods
-
-
-    _this.getCruxIDState = function () {
+    this.getCruxIDState = function () {
       return __awaiter(_this, void 0, Promise, function () {
         var fullCruxID, status, err_4;
         return __generator(this, function (_a) {
@@ -122739,51 +122568,62 @@ function (_super) {
       });
     };
 
-    _this.registerCruxID = function (cruxIDSubdomain, newAddressMap) {
+    this.registerCruxID = function (cruxIDSubdomain) {
       return __awaiter(_this, void 0, Promise, function () {
         var identityClaim, _a, _b, _c, registeredPublicID, err_5;
 
         return __generator(this, function (_d) {
           switch (_d.label) {
             case 0:
-              _d.trys.push([0, 13,, 14]); // Subdomain validation
+              _d.trys.push([0, 12,, 13]); // Subdomain validation
 
 
-              _packages.identityUtils.validateSubdomain(cruxIDSubdomain); // validating the addressMap provided
+              _packages.identityUtils.validateSubdomain(cruxIDSubdomain);
 
+              return [4
+              /*yield*/
+              , this.isCruxIDAvailable(cruxIDSubdomain)];
 
-              if (newAddressMap) {
-                this._getAssetAddressMapFromCurrencyAddressMap(newAddressMap);
+            case 1:
+              // Validate if the subdomain is available
+              if (!_d.sent()) {
+                throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.CruxIDUnavailable, cruxIDSubdomain);
               }
 
               if (!this._payIDClaim) return [3
               /*break*/
-              , 2];
+              , 3];
+
+              if (this._payIDClaim.virtualAddress) {
+                // Do not allow multiple registrations using same payIDClaim
+                throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.ExistingCruxIDFound, this._payIDClaim.virtualAddress);
+              }
+
               return [4
               /*yield*/
               , this._payIDClaim.decrypt()];
 
-            case 1:
+            case 2:
               _d.sent();
 
-              _d.label = 2;
+              _d.label = 3;
 
-            case 2:
+            case 3:
               identityClaim = void 0;
               if (!this._payIDClaim) return [3
               /*break*/
-              , 3];
+              , 4];
               identityClaim = {
                 secrets: this._payIDClaim.identitySecrets
               };
               return [3
               /*break*/
-              , 7];
+              , 8];
 
-            case 3:
+            case 4:
               if (!this._keyPair) return [3
               /*break*/
-              , 4];
+              , 5];
               identityClaim = {
                 secrets: {
                   identityKeyPair: this._keyPair
@@ -122791,30 +122631,30 @@ function (_super) {
               };
               return [3
               /*break*/
-              , 7];
+              , 8];
 
-            case 4:
+            case 5:
               _b = (_a = this._nameService).generateIdentity;
               _c = [this._storage];
               return [4
               /*yield*/
               , this._getEncryptionKey()];
 
-            case 5:
+            case 6:
               return [4
               /*yield*/
               , _b.apply(_a, _c.concat([_d.sent()]))];
 
-            case 6:
-              identityClaim = _d.sent();
-              _d.label = 7;
-
             case 7:
+              identityClaim = _d.sent();
+              _d.label = 8;
+
+            case 8:
               return [4
               /*yield*/
               , this._nameService.registerName(identityClaim, cruxIDSubdomain)];
 
-            case 8:
+            case 9:
               registeredPublicID = _d.sent(); // Setup the payIDClaim locally
 
               this._setPayIDClaim(new PayIDClaim({
@@ -122829,7 +122669,7 @@ function (_super) {
               /*yield*/
               , this._payIDClaim.encrypt()];
 
-            case 9:
+            case 10:
               // await this._payIDClaim.setPasscode(passcode)
               _d.sent();
 
@@ -122837,34 +122677,18 @@ function (_super) {
               /*yield*/
               , this._payIDClaim.save(this._storage)];
 
-            case 10:
-              _d.sent();
-
-              if (!newAddressMap) return [3
-              /*break*/
-              , 12];
-              log.debug("Selected addresses for resolving via your ID: " + Object.keys(newAddressMap).map(function (currency) {
-                return "\n" + newAddressMap[currency].addressHash;
-              }));
-              return [4
-              /*yield*/
-              , this.putAddressMap(newAddressMap)];
-
             case 11:
               _d.sent();
 
-              _d.label = 12;
+              return [2
+              /*return*/
+              ];
 
             case 12:
-              return [3
-              /*break*/
-              , 14];
-
-            case 13:
               err_5 = _d.sent();
               throw _packages.errors.CruxClientError.fromError(err_5);
 
-            case 14:
+            case 13:
               return [2
               /*return*/
               ];
@@ -122873,26 +122697,27 @@ function (_super) {
       });
     };
 
-    _this.putAddressMap = function (newAddressMap) {
+    this.putAddressMap = function (newAddressMap) {
       return __awaiter(_this, void 0, Promise, function () {
-        var assetAddressMap, acknowledgement, err_6;
-        return __generator(this, function (_a) {
-          switch (_a.label) {
+        var _a, assetAddressMap, success, failures, err_6;
+
+        return __generator(this, function (_b) {
+          switch (_b.label) {
             case 0:
-              _a.trys.push([0, 5,, 6]);
+              _b.trys.push([0, 5,, 6]);
 
               return [4
               /*yield*/
               , this._getAssetAddressMapFromCurrencyAddressMap(newAddressMap)];
 
             case 1:
-              assetAddressMap = _a.sent();
+              _a = _b.sent(), assetAddressMap = _a.assetAddressMap, success = _a.success, failures = _a.failures;
               return [4
               /*yield*/
               , this._payIDClaim.decrypt()];
 
             case 2:
-              _a.sent();
+              _b.sent();
 
               return [4
               /*yield*/
@@ -122901,20 +122726,24 @@ function (_super) {
               }, assetAddressMap)];
 
             case 3:
-              acknowledgement = _a.sent();
+              _b.sent();
+
               return [4
               /*yield*/
               , this._payIDClaim.encrypt()];
 
             case 4:
-              _a.sent();
+              _b.sent();
 
               return [2
               /*return*/
-              , acknowledgement];
+              , {
+                success: success,
+                failures: failures
+              }];
 
             case 5:
-              err_6 = _a.sent();
+              err_6 = _b.sent();
               throw _packages.errors.CruxClientError.fromError(err_6);
 
             case 6:
@@ -122926,7 +122755,7 @@ function (_super) {
       });
     };
 
-    _this.getAddressMap = function () {
+    this.getAddressMap = function () {
       return __awaiter(_this, void 0, Promise, function () {
         var currencyAddressMap, userAssetIdToAddressMap, _a, _b, assetId, _c, e_1_1, err_7, error;
 
@@ -122963,7 +122792,7 @@ function (_super) {
               _c = currencyAddressMap;
               return [4
               /*yield*/
-              , this._configService.translateAssetIdToSymbol(assetId)];
+              , this._translateAssetIdToSymbol(assetId)];
 
             case 4:
               _c[_e.sent()] = userAssetIdToAddressMap[assetId];
@@ -123034,7 +122863,29 @@ function (_super) {
       });
     };
 
-    _this._getIDStatus = function () {
+    this.getAssetMap = function () {
+      try {
+        if (_this._configService) {
+          return _this._configService.resolvedClientAssetMap;
+        } else {
+          throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.ClientNotInitialized);
+        }
+      } catch (err) {
+        throw _packages.errors.CruxClientError.fromError(err);
+      }
+    };
+
+    this.getAssetMapping = function () {
+      return _this.getAssetMap;
+    }; // For backward compatibility
+
+
+    this._setPayIDClaim = function (payIDClaim) {
+      _this._payIDClaim = payIDClaim;
+      delete _this._keyPair;
+    };
+
+    this._getIDStatus = function () {
       return __awaiter(_this, void 0, Promise, function () {
         var result;
         return __generator(this, function (_a) {
@@ -123070,25 +122921,25 @@ function (_super) {
       });
     };
 
-    _this._getAssetAddressMapFromCurrencyAddressMap = function (currencyAddressMap) {
-      return __awaiter(_this, void 0, void 0, function () {
-        var assetAddressMap, _a, _b, walletCurrencySymbol, assetId, e_2_1;
+    this._getAssetAddressMapFromCurrencyAddressMap = function (currencyAddressMap) {
+      return __awaiter(_this, void 0, Promise, function () {
+        var lowerCurrencyAddressMap, assetAddressMap, success, failures, _a, _b, walletCurrencySymbol, assetId, e_2_1;
 
         var e_2, _c;
 
         return __generator(this, function (_d) {
           switch (_d.label) {
             case 0:
-              if (!this._configService) return [3
-              /*break*/
-              , 9];
+              lowerCurrencyAddressMap = Object.assign({}, currencyAddressMap);
               assetAddressMap = {};
+              success = {};
+              failures = {};
               _d.label = 1;
 
             case 1:
               _d.trys.push([1, 6, 7, 8]);
 
-              _a = __values(Object.keys(currencyAddressMap)), _b = _a.next();
+              _a = __values(Object.keys(lowerCurrencyAddressMap)), _b = _a.next();
               _d.label = 2;
 
             case 2:
@@ -123096,19 +122947,20 @@ function (_super) {
               /*break*/
               , 5];
               walletCurrencySymbol = _b.value;
-              currencyAddressMap[walletCurrencySymbol.toLowerCase()] = currencyAddressMap[walletCurrencySymbol];
+              lowerCurrencyAddressMap[walletCurrencySymbol.toLowerCase()] = lowerCurrencyAddressMap[walletCurrencySymbol];
               walletCurrencySymbol = walletCurrencySymbol.toLowerCase();
               return [4
               /*yield*/
-              , this._configService.translateSymbolToAssetId(walletCurrencySymbol)];
+              , this._translateSymbolToAssetId(walletCurrencySymbol)];
 
             case 3:
               assetId = _d.sent();
 
               if (assetId) {
-                assetAddressMap[assetId] = currencyAddressMap[walletCurrencySymbol];
+                assetAddressMap[assetId] = lowerCurrencyAddressMap[walletCurrencySymbol];
+                success[walletCurrencySymbol] = lowerCurrencyAddressMap[walletCurrencySymbol];
               } else {
-                throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.CurrencyDoesNotExistInClientMapping);
+                failures[walletCurrencySymbol] = _packages.errors.PackageErrorCode.CurrencyDoesNotExistInClientMapping + ": " + _packages.errors.ERROR_STRINGS[_packages.errors.PackageErrorCode.CurrencyDoesNotExistInClientMapping];
               }
 
               _d.label = 4;
@@ -123147,7 +122999,171 @@ function (_super) {
             case 8:
               return [2
               /*return*/
-              , assetAddressMap];
+              , {
+                assetAddressMap: assetAddressMap,
+                failures: failures,
+                success: success
+              }];
+          }
+        });
+      });
+    };
+
+    this._setupConfigService = function () {
+      return __awaiter(_this, void 0, Promise, function () {
+        return __generator(this, function (_a) {
+          switch (_a.label) {
+            case 0:
+              if (!!this._configService) return [3
+              /*break*/
+              , 2];
+              this._configService = new _packages.configurationService.ConfigurationService(this.walletClientName);
+              return [4
+              /*yield*/
+              , this._configService.init()];
+
+            case 1:
+              _a.sent();
+
+              _a.label = 2;
+
+            case 2:
+              return [2
+              /*return*/
+              ];
+          }
+        });
+      });
+    };
+
+    this._initializeNameService = function () {
+      return __awaiter(_this, void 0, void 0, function () {
+        var nameServiceConfig;
+        return __generator(this, function (_a) {
+          switch (_a.label) {
+            case 0:
+              if (!this._configService) {
+                throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.ClientNotInitialized);
+              }
+
+              if (!!this._nameService) return [3
+              /*break*/
+              , 7];
+              nameServiceConfig = void 0;
+              if (!(this._payIDClaim && this._payIDClaim.virtualAddress)) return [3
+              /*break*/
+              , 4];
+              return [4
+              /*yield*/
+              , this._payIDClaim.decrypt()];
+
+            case 1:
+              _a.sent();
+
+              return [4
+              /*yield*/
+              , this._configService.getBlockstackServiceConfig(this._payIDClaim.virtualAddress, {
+                secrets: this._payIDClaim.identitySecrets
+              })];
+
+            case 2:
+              nameServiceConfig = _a.sent();
+              return [4
+              /*yield*/
+              , this._payIDClaim.encrypt()];
+
+            case 3:
+              _a.sent();
+
+              return [3
+              /*break*/
+              , 6];
+
+            case 4:
+              return [4
+              /*yield*/
+              , this._configService.getBlockstackServiceConfig()];
+
+            case 5:
+              nameServiceConfig = _a.sent();
+              _a.label = 6;
+
+            case 6:
+              this._nameService = new _packages.blockstackService.BlockstackService(nameServiceConfig);
+              _a.label = 7;
+
+            case 7:
+              return [2
+              /*return*/
+              ];
+          }
+        });
+      });
+    };
+
+    this._restoreIdentity = function () {
+      return __awaiter(_this, void 0, void 0, function () {
+        var identityClaim;
+        return __generator(this, function (_a) {
+          switch (_a.label) {
+            case 0:
+              if (!(this._payIDClaim && this._payIDClaim.identitySecrets)) return [3
+              /*break*/
+              , 8];
+              return [4
+              /*yield*/
+              , this._payIDClaim.decrypt()];
+
+            case 1:
+              _a.sent();
+
+              _a.label = 2;
+
+            case 2:
+              _a.trys.push([2,, 4, 7]);
+
+              return [4
+              /*yield*/
+              , this._nameService.restoreIdentity(this._payIDClaim.virtualAddress, {
+                secrets: this._payIDClaim.identitySecrets
+              })];
+
+            case 3:
+              identityClaim = _a.sent();
+              this._payIDClaim.identitySecrets = identityClaim.secrets;
+              log.info("Identity restored");
+              return [3
+              /*break*/
+              , 7];
+
+            case 4:
+              log.debug("Encrypting and saving the payIDClaim");
+              return [4
+              /*yield*/
+              , this._payIDClaim.encrypt()];
+
+            case 5:
+              _a.sent();
+
+              return [4
+              /*yield*/
+              , this._payIDClaim.save(this._storage)];
+
+            case 6:
+              _a.sent();
+
+              return [7
+              /*endfinally*/
+              ];
+
+            case 7:
+              return [3
+              /*break*/
+              , 9];
+
+            case 8:
+              log.info("payIDClaim or identitySecrets not available! Identity restoration skipped");
+              _a.label = 9;
 
             case 9:
               return [2
@@ -123158,12 +123174,186 @@ function (_super) {
       });
     };
 
-    return _this;
+    this._hasPayIDClaimStored = function () {
+      return __awaiter(_this, void 0, Promise, function () {
+        var payIDClaim;
+        return __generator(this, function (_a) {
+          switch (_a.label) {
+            case 0:
+              return [4
+              /*yield*/
+              , this._storage.getJSON("payIDClaim")];
+
+            case 1:
+              payIDClaim = _a.sent();
+              return [2
+              /*return*/
+              , Boolean(payIDClaim)];
+          }
+        });
+      });
+    };
+
+    this._translateSymbolToAssetId = function (currencySymbol) {
+      if (!_this._configService) {
+        throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.ClientNotInitialized);
+      }
+
+      return _this._configService.clientAssetMapping[currencySymbol];
+    };
+
+    this._translateAssetIdToSymbol = function (assetId) {
+      if (!_this._configService) {
+        throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.ClientNotInitialized);
+      }
+
+      return _this._configService.reverseClientAssetMapping[assetId];
+    };
+
+    this._options = Object.assign({}, options); // TODO: Need to validate options
+
+    this._getEncryptionKey = this._options.getEncryptionKey; // log.debug(`Encryption key:`, this._getEncryptionKey())
+    // Setting up the default modules as fallbacks
+
+    this._storage = this._options.storage || new _packages.storage.LocalStorage();
+    this._encryption = this._options.encryption || _packages.encryption.Encryption;
+    this._nameService = this._options.nameService;
+
+    if (this._options.privateKey) {
+      this._keyPair = _packages.utils.getKeyPairFromPrivKey(this._options.privateKey);
+    }
+
+    this.walletClientName = this._options.walletClientName; // Assigning cacheStorage
+
+    exports.cacheStorage = cacheStorage = this._storage;
+    log.info("Config mode:", _config.default.CONFIG_MODE);
+    log.info("CruxPayPeer Initialised");
   }
 
+  CruxClient.prototype.init = function () {
+    return __awaiter(this, void 0, void 0, function () {
+      var payIDClaim, registeredCruxID, registeredCruxID, payIDClaim;
+
+      var _this = this;
+
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            return [4
+            /*yield*/
+            , this._setupConfigService()];
+
+          case 1:
+            _a.sent();
+
+            if (!this._configService) {
+              throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.ClientNotInitialized);
+            }
+
+            return [4
+            /*yield*/
+            , this._hasPayIDClaimStored()];
+
+          case 2:
+            if (!_a.sent()) return [3
+            /*break*/
+            , 6];
+            log.debug("using the stored payIDClaim");
+            return [4
+            /*yield*/
+            , this._storage.getJSON("payIDClaim")];
+
+          case 3:
+            payIDClaim = _a.sent();
+            if (!this._keyPair) return [3
+            /*break*/
+            , 5];
+            return [4
+            /*yield*/
+            , (0, _utils.getCruxIDByAddress)(this.walletClientName, this._keyPair.address, this._configService.getBnsNodes(), this._configService.getSubdomainRegistrar())];
+
+          case 4:
+            registeredCruxID = _a.sent();
+
+            if (registeredCruxID) {
+              CruxClient.validateCruxIDByWallet(this.walletClientName, registeredCruxID);
+
+              if (registeredCruxID !== payIDClaim.virtualAddress) {
+                throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.KeyPairMismatch);
+              }
+            } else {
+              throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.KeyPairMismatch);
+            }
+
+            _a.label = 5;
+
+          case 5:
+            this._setPayIDClaim(new PayIDClaim(payIDClaim, {
+              getEncryptionKey: this._getEncryptionKey
+            }));
+
+            return [3
+            /*break*/
+            , 8];
+
+          case 6:
+            if (!this._keyPair) return [3
+            /*break*/
+            , 8];
+            log.debug("using the keyPair provided");
+            return [4
+            /*yield*/
+            , (0, _utils.getCruxIDByAddress)(this.walletClientName, this._keyPair.address, this._configService.getBnsNodes(), this._configService.getSubdomainRegistrar())];
+
+          case 7:
+            registeredCruxID = _a.sent();
+
+            if (registeredCruxID) {
+              CruxClient.validateCruxIDByWallet(this.walletClientName, registeredCruxID);
+              payIDClaim = {
+                identitySecrets: {
+                  identityKeyPair: this._keyPair
+                },
+                virtualAddress: registeredCruxID || undefined
+              };
+
+              this._setPayIDClaim(new PayIDClaim(payIDClaim, {
+                getEncryptionKey: this._getEncryptionKey
+              }));
+            }
+
+            _a.label = 8;
+
+          case 8:
+            return [4
+            /*yield*/
+            , this._initializeNameService().then(function () {
+              return _this._restoreIdentity();
+            })];
+
+          case 9:
+            _a.sent();
+
+            log.info("CruxPayPeer: Done init");
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
+  CruxClient.validateCruxIDByWallet = function (walletClientName, cruxIDString) {
+    var cruxID = _packages.identityUtils.CruxId.fromString(cruxIDString);
+
+    if (cruxID.components.domain !== walletClientName) {
+      throw _packages.errors.ErrorHelper.getPackageError(_packages.errors.PackageErrorCode.DifferentWalletCruxID);
+    }
+  };
+
   return CruxClient;
-}(CruxPayPeer);
+}();
 
 exports.CruxClient = CruxClient;
-},{"js-logger":"nnXn","path":"UUq2","regenerator-runtime/runtime":"QVnC","./config":"C9JJ","./packages/identity-utils":"j93N","./packages":"LrjU","./packages/name-service/utils":"rxEh"}]},{},["QCba"], null)
+},{"js-logger":"nnXn","path":"UUq2","regenerator-runtime/runtime":"QVnC","./config":"C9JJ","./packages":"LrjU","./packages/name-service/utils":"rxEh"}]},{},["QCba"], null)
 //# sourceMappingURL=/cruxpay-sdk.js.map

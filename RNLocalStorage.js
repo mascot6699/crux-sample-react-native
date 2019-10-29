@@ -1,4 +1,4 @@
-
+import AsyncStorage from "@react-native-community/async-storage";
 import {storage} from "./cruxpay-sdk"
 
 const MEMORY_KEY_PREFIX = '@CruxPay:';
@@ -6,14 +6,14 @@ let dataMemory = {};
 
 export class RNLocalStorage extends storage.StorageService {
 
-    setItem = (key, value) => {
+    setItem = async (key, value) => {
         // AsyncStorage.setItem(MEMORY_KEY_PREFIX + key, value);
         dataMemory[key] = value;
-        return dataMemory[key];
+        return Promise.resolve(dataMemory[key]);
     }
 
-    getItem = (key) => {
-        return Object.prototype.hasOwnProperty.call(dataMemory, key) ? dataMemory[key] : undefined;
+    getItem = async (key) => {
+        return Promise.resolve(Object.prototype.hasOwnProperty.call(dataMemory, key) ? dataMemory[key] : undefined);
     }
 
     // static sync(callback) {
@@ -35,4 +35,19 @@ export class RNLocalStorage extends storage.StorageService {
     //         return undefined;
     //     });
     // }
+}
+
+
+// LocalStorage service implementation
+export class RNLocalStorage1 extends storage.StorageService {
+
+
+    setItem = async (key, value) => {
+        return AsyncStorage.setItem(key, value);
+    }
+
+    // @ts-ignore
+    getItem = async (key) => {
+        return AsyncStorage.getItem(key);
+    }
 }

@@ -139,6 +139,8 @@ android {
 }
 
 dependencies {
+    implementation project(':@react-native-community_async-storage')
+    implementation project(':react-native-get-random-values')
     implementation project(':react-native-tcp')
     implementation project(':react-native-screens')
     implementation project(':react-native-reanimated')

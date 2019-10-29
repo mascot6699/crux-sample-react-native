@@ -45,4 +45,6 @@ target 'crux' do
 
   pod 'TcpSockets', :path => '../node_modules/react-native-tcp'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
 end
